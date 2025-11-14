@@ -87,59 +87,76 @@ const Resume: React.FC = () => {
             <Section title="Work Experience">
                 <div className="space-y-12">
                     <div>
-                        <h3 className="text-2xl font-semibold text-gray-900">Verizon</h3>
-                        <p className="text-xl text-gray-700">Associate Director</p>
-                        <p className="text-base text-gray-500 mb-4">December 2023 – Present</p>
-                        <ul className="list-disc pl-5 space-y-2 text-gray-600">
-                            <li>Leading a Source-to-Contract support team of 30+ professionals and supply chain analysts.</li>
-                            <li>Driving global strategic sourcing initiatives and overseeing end-to-end sourcing operations.</li>
-                            <li>Developing supplier-facing knowledge management programs to enhance collaboration and efficiency.</li>
-                        </ul>
+                        <h3 className="text-2xl font-bold text-gray-900 mb-1">Verizon</h3>
+                        <p className="text-gray-500 mb-6">6 years 6 months</p>
+                        <div className="space-y-8">
+                            <div>
+                                <h4 className="text-xl font-semibold text-gray-800">Associate Director, Shared Services & Operations (GSO)</h4>
+                                <p className="text-base text-gray-500 mb-3">January 2024 - Present &middot; Hyderabad, Telangana, India</p>
+                                <p className="text-gray-700">A proven leader in strategic sourcing and procurement, with a strong track record of championing change management and digital transformation leading a 50+ talented sourcing professionals. By strategically integrating innovative, Al-powered solutions, this role has consistently driven significant process improvements and enhanced team productivity. My leadership style is defined by a commitment to mentorship, empowering global teams to embrace new technologies and become agents of change. The focus is on providing executive-level guidance on high-impact sourcing initiatives, directly influencing global supply chain strategy, and ensuring the organization remains at the forefront of procurement best practices.</p>
+                            </div>
+                            <div>
+                                <h4 className="text-xl font-semibold text-gray-800">WAVE Regional Communications Chair (Asia Pacific)</h4>
+                                <p className="text-base text-gray-500 mb-3">April 2022 - Present &middot; Hyderabad, Telangana, India</p>
+                                <p className="text-gray-700">As a leader in a volunteer capacity, this role consistently demonstrated strategic leadership by serving as a Board Representative, providing updates, and acting as the primary point of contact for a large membership. The role drove a significant change management initiative by developing and executing a comprehensive communications plan to increase awareness and engagement. A key focus was on mentorship, cultivating and empowering a communications committee to foster professional growth. This leadership also resulted in a more engaged community by coordinating, writing, and distributing all membership communications. By streamlining processes, this role ensured consistency and efficiency across all communications and content delivery.</p>
+                            </div>
+                            <div>
+                                <h4 className="text-xl font-semibold text-gray-800">Senior Manager, Shared Services & Operations (GSO)</h4>
+                                <p className="text-base text-gray-500 mb-3">September 2022 - December 2023 (1 year 4 months) &middot; Hyderabad, Telangana, India</p>
+                                <p className="text-gray-700">In this leadership role, guided a team of over 30+ sourcing professionals, consistently exceeding key performance metrics and strategic objectives. This position served as a strategic partner to executive leadership, providing critical insights that directly influenced sourcing decisions and broader supply chain initiatives. With a strong focus on mentorship, the leader coached junior colleagues on complex sourcing projects, simultaneously pioneering a more collaborative team environment to improve communication and alignment across all functions.</p>
+                            </div>
+                             <div>
+                                <h4 className="text-xl font-semibold text-gray-800">Consultant, Sourcing</h4>
+                                <p className="text-base text-gray-500 mb-3">March 2021 - September 2022 (1 year 7 months) &middot; Hyderabad, Telangana, India</p>
+                                <p className="text-gray-700">In this role, directed a complex change management initiative, successfully transitioning a critical ERP implementation from an external partner to an in-house team. This involved providing dynamic leadership across all program phases, from stakeholder management and budget control to execution and stabilization. By expertly managing both internal and external dependencies, this position ensured a smooth project timeline. A key focus was on proactive mentorship, guiding team members through the complexities of the new system while facilitating cross-functional collaboration to ensure all stakeholders were aligned and committed to the program's success.</p>
+                            </div>
+                             <div>
+                                <h4 className="text-xl font-semibold text-gray-800">Specialist, Sourcing</h4>
+                                <p className="text-base text-gray-500 mb-3">June 2019 - March 2021 (1 year 10 months) &middot; Hyderabad, Telangana, India</p>
+                                <p className="text-gray-700">As a strategic specialist, this role was responsible for managing over $500M in spending, identifying and securing over $100M in documented cost savings. A key focus was providing expert consultation to stakeholders by developing and executing category strategies that enhanced business value and mitigated risk. Acting as a change agent, this role introduced and implemented new sourcing methodologies and negotiation strategies to improve overall purchasing power. The position also fostered strong supplier relationships, drove performance improvements through effective contract management, and mentored junior team members on data-driven sourcing and negotiation best practices.</p>
+                            </div>
+                        </div>
                     </div>
                     <div>
-                        <h3 className="text-2xl font-semibold text-gray-900">Verizon</h3>
-                        <p className="text-xl text-gray-700">Senior Manager</p>
-                        <p className="text-base text-gray-500 mb-4">September 2022 – November 2023</p>
-                        <ul className="list-disc pl-5 space-y-2 text-gray-600">
-                            <li>Led a source-to-contract support team of 20+ professionals.</li>
-                            <li>Aligned with global sourcing leadership on business priorities and drove category-specific goals.</li>
-                        </ul>
+                        <h3 className="text-2xl font-bold text-gray-900 mb-1">Hitachi Vantara</h3>
+                        <p className="text-gray-500 mb-6">3 years 2 months</p>
+                         <div className="space-y-8">
+                             <div>
+                                <h4 className="text-xl font-semibold text-gray-800">Senior Consultant, Supply Chain (Asia Pacific)</h4>
+                                <p className="text-base text-gray-500 mb-3">April 2018 - June 2019 (1 year 3 months) &middot; Hyderabad, Telangana, India</p>
+                            </div>
+                             <div>
+                                <h4 className="text-xl font-semibold text-gray-800">Consultant, Supply Chain (Asia Pacific)</h4>
+                                <p className="text-base text-gray-500 mb-3">May 2016 - April 2018 (2 years) &middot; Hyderabad, Telangana, India</p>
+                                <p className="text-gray-700">In this role, provided direct leadership and supervision to the India Delivery Centers, making key operational decisions that were aligned with senior leadership's strategic direction. This position was critical in fostering cross-functional collaboration with project managers and stakeholders to define requirements and ensure the seamless execution of procurement activities. By focusing on continuous improvement, the leader successfully streamlined end-to-end procurement processes, effectively managing supplier relationships, assessing performance, and overseeing contract and invoice management to maximize efficiency.</p>
+                            </div>
+                        </div>
                     </div>
                     <div>
-                        <h3 className="text-2xl font-semibold text-gray-900">Verizon</h3>
-                        <p className="text-xl text-gray-700">Specialist, Promoted to Consultant</p>
-                        <p className="text-base text-gray-500 mb-4">June 2019 – August 2022</p>
-                        <ul className="list-disc pl-5 space-y-2 text-gray-600">
-                            <li>Served a dual role as Program Leader for 1Sourcing Ariba S2C Implementation and Category Sourcing Consultant.</li>
-                            <li>Managed projects with a spend of over $500M, achieving multi-site cost savings of $100M.</li>
-                        </ul>
+                        <h3 className="text-2xl font-bold text-gray-900 mb-1">Deloitte India (Offices of the US)</h3>
+                         <div className="space-y-8 mt-6">
+                             <div>
+                                <h4 className="text-xl font-semibold text-gray-800">Strategic Sourcing Analyst</h4>
+                                <p className="text-base text-gray-500 mb-3">October 2015 - April 2016 (7 months) &middot; Hyderabad, Andhra Pradesh, India</p>
+                                <p className="text-gray-700">In this role, analyzed and presented financial data and key insights from RFx activities to support strategic decision-making. The position led data-driven initiatives, including collecting, organizing, and analyzing large volumes of data for various projects and developing trend analyses for future-case scenario modeling. This role also contributed to significant system and reporting improvements by troubleshooting data integrity issues and participating in new tool implementations to ensure data accuracy and reliability.</p>
+                            </div>
+                        </div>
                     </div>
                      <div>
-                        <h3 className="text-2xl font-semibold text-gray-900">Hitachi Consulting</h3>
-                        <p className="text-xl text-gray-700">Supply Chain Senior Consultant</p>
-                        <p className="text-base text-gray-500 mb-4">May 2016 – June 2019</p>
-                        <ul className="list-disc pl-5 space-y-2 text-gray-600">
-                            <li>Enhanced source-to-pay cycle efficiency by introducing a centralized purchasing function.</li>
-                            <li>Implemented an eRequest Management System and streamlined the S2P process using Ariba On-Demand.</li>
-                        </ul>
-                    </div>
-                     <div>
-                        <h3 className="text-2xl font-semibold text-gray-900">Deloitte</h3>
-                        <p className="text-xl text-gray-700">Strategic Sourcing Analyst</p>
-                        <p className="text-base text-gray-500 mb-4">October 2015 – April 2016</p>
-                        <ul className="list-disc pl-5 space-y-2 text-gray-600">
-                            <li>Supported category managers in rolling out RFx for internal requirements in the US and India.</li>
-                            <li>Acted as a single point of contact for suppliers and stakeholders during the sourcing process.</li>
-                        </ul>
-                    </div>
-                     <div>
-                        <h3 className="text-2xl font-semibold text-gray-900">Genpact</h3>
-                        <p className="text-xl text-gray-700">Strategic Sourcing Buyer</p>
-                        <p className="text-base text-gray-500 mb-4">October 2013 – October 2015</p>
-                        <ul className="list-disc pl-5 space-y-2 text-gray-600">
-                           <li>Worked as an MRO & IT Buyer, enhancing the S2P cycle for a multinational healthcare client.</li>
-                           <li>Managed buying processes and ensured compliance with sourcing policies.</li>
-                        </ul>
+                        <h3 className="text-2xl font-bold text-gray-900 mb-1">GENPACT</h3>
+                        <p className="text-gray-500 mb-6">2 years 1 month</p>
+                         <div className="space-y-8">
+                            <div>
+                                <h4 className="text-xl font-semibold text-gray-800">Senior Buyer</h4>
+                                <p className="text-base text-gray-500 mb-3">October 2014 - October 2015 (1 year 1 month) &middot; Dlf Cybercity</p>
+                                <p className="text-gray-700">In this dynamic role, I managed day-to-day procurement operations and provided timely support for a variety of ad-hoc requests, including cost analysis, change management, and supplier performance management. I proactively contributed to internal business development, expanding the department's footprint and strengthening its influence within a specific region. A key aspect of this position was my role as a mentor, providing early coaching to junior procurement colleagues on smaller sourcing projects, and helping to build the firm's sourcing knowledge base.</p>
+                            </div>
+                            <div>
+                                <h4 className="text-xl font-semibold text-gray-800">Buyer</h4>
+                                <p className="text-base text-gray-500 mb-3">October 2013 - October 2014 (1 year 1 month) &middot; Hyderabad Area, India</p>
+                                <p className="text-gray-700">As a member of a procurement team supporting a US healthcare implant multinational with their procurement operations. This role was responsible for managing day-to-day operations and providing timely support for a variety of ad-hoc requests, including cost analysis and delivery & lead time management to meet strict SLAs.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </Section>
