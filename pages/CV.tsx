@@ -37,9 +37,11 @@ export const AnimatedSection: React.FC<{ children: React.ReactNode, className?: 
 
 const Section: React.FC<{ title: string; children: React.ReactNode }> = ({ title, children }) => (
     <AnimatedSection className="mt-16">
-        <h2 className="text-3xl font-bold text-gray-900 mb-8">{title}</h2>
-        <div className="space-y-6 text-gray-700 leading-relaxed text-xl">
-            {children}
+        <div className="bg-gray-50/80 p-8 md:p-12 rounded-lg shadow-sm">
+            <h2 className="text-3xl font-bold text-gray-900 mb-8">{title}</h2>
+            <div className="space-y-6 text-gray-700 leading-relaxed text-xl">
+                {children}
+            </div>
         </div>
     </AnimatedSection>
 );
@@ -112,7 +114,7 @@ const Resume: React.FC = () => {
                             </div>
                              <div>
                                 <h4 className="text-xl font-semibold text-gray-800">Specialist, Sourcing</h4>
-                                <p className="text-base text-gray-500 mb-3">June 2019 - March 2021 (1 year 10 months) &middot; Hyderabad, Telangana, India</p>
+                                <p className="text-base text-gray-500 mb-3">June 2021 - March 2021 (1 year 10 months) &middot; Hyderabad, Telangana, India</p>
                                 <p className="text-gray-700">As a strategic specialist, this role was responsible for managing over $500M in spending, identifying and securing over $100M in documented cost savings. A key focus was providing expert consultation to stakeholders by developing and executing category strategies that enhanced business value and mitigated risk. Acting as a change agent, this role introduced and implemented new sourcing methodologies and negotiation strategies to improve overall purchasing power. The position also fostered strong supplier relationships, drove performance improvements through effective contract management, and mentored junior team members on data-driven sourcing and negotiation best practices.</p>
                             </div>
                         </div>
