@@ -11,7 +11,7 @@ import Footer from './components/Footer';
 function App() {
   return (
     <HashRouter>
-      <div className="text-gray-900 font-sans antialiased flex flex-col min-h-screen">
+      <div className="bg-white text-gray-900 font-sans antialiased flex flex-col min-h-screen">
         <Cursor />
         <Header />
         <main className="flex-grow">

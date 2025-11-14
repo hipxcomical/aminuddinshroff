@@ -45,7 +45,7 @@ const Section: React.FC<{ title: string; children: React.ReactNode }> = ({ title
 );
 
 const ExperienceItem: React.FC<{ title: string; company: string; duration: string; children: React.ReactNode }> = ({ title, company, duration, children }) => (
-  <div className="bg-gray-50 p-6 rounded-lg shadow-sm transition-shadow duration-300 hover:shadow-md h-full">
+  <div className="bg-white p-6 rounded-lg shadow-sm transition-shadow duration-300 hover:shadow-md h-full">
     <h3 className="text-2xl font-semibold text-gray-900">{company}</h3>
     <p className="text-xl text-gray-700">{title}</p>
     <p className="text-base text-gray-500 mb-4">{duration}</p>
@@ -54,7 +54,7 @@ const ExperienceItem: React.FC<{ title: string; company: string; duration: strin
 );
 
 const CertificationItem: React.FC<{ title: string; issuer: string; color: string }> = ({ title, issuer, color }) => (
-  <div className={`bg-gray-50 p-6 rounded-lg shadow-sm transition-shadow duration-300 hover:shadow-md h-full border-l-4 ${color}`}>
+  <div className={`bg-white p-6 rounded-lg shadow-sm transition-shadow duration-300 hover:shadow-md h-full border-l-4 ${color}`}>
     <h3 className="text-xl font-semibold text-gray-900">{title}</h3>
     <p className="text-gray-600">{issuer}</p>
   </div>
@@ -155,13 +155,13 @@ const Resume: React.FC = () => {
 
             <Section title="Professional Affiliations">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div className="bg-gray-50 p-6 rounded-lg text-center shadow-sm transition-shadow duration-300 hover:shadow-md">
+                    <div className="bg-white p-6 rounded-lg text-center shadow-sm transition-shadow duration-300 hover:shadow-md">
                          <h3 className="text-xl font-semibold text-gray-900">Project Management Institute (PMI)</h3>
                     </div>
-                     <div className="bg-gray-50 p-6 rounded-lg text-center shadow-sm transition-shadow duration-300 hover:shadow-md">
+                     <div className="bg-white p-6 rounded-lg text-center shadow-sm transition-shadow duration-300 hover:shadow-md">
                          <h3 className="text-xl font-semibold text-gray-900">Association for Supply Chain Management (APICS/ASCM)</h3>
                     </div>
-                     <div className="bg-gray-50 p-6 rounded-lg text-center shadow-sm transition-shadow duration-300 hover:shadow-md">
+                     <div className="bg-white p-6 rounded-lg text-center shadow-sm transition-shadow duration-300 hover:shadow-md">
                          <h3 className="text-xl font-semibold text-gray-900">Institute for Supply Management (ISM)</h3>
                     </div>
                 </div>
@@ -169,7 +169,7 @@ const Resume: React.FC = () => {
 
 
             <Section title="Core Competencies">
-                 <div className="bg-gray-50 p-8 rounded-lg shadow-sm">
+                 <div className="bg-white p-8 rounded-lg shadow-sm">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-6">
                         <div>
                             <h3 className="text-xl font-semibold text-gray-900 mb-2">Sourcing & Procurement</h3>
