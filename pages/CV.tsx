@@ -63,7 +63,7 @@ const CertificationItem: React.FC<{ title: string; issuer: string; color: string
 const Resume: React.FC = () => {
   return (
     <div className="w-full mx-auto px-8 md:px-16 lg:px-24 pb-16 md:pb-24">
-        <div className="bg-white/70 backdrop-blur-sm p-4 md:p-0 rounded-lg">
+        <div>
             <AnimatedSection className="mb-16">
                 <div className="flex flex-col lg:flex-row items-start lg:gap-16">
                     <div className="lg:flex-1">
