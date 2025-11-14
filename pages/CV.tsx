@@ -44,22 +44,6 @@ const Section: React.FC<{ title: string; children: React.ReactNode }> = ({ title
     </AnimatedSection>
 );
 
-const ExperienceItem: React.FC<{ title: string; company: string; duration: string; children: React.ReactNode }> = ({ title, company, duration, children }) => (
-  <div className="bg-white p-6 rounded-lg shadow-sm transition-shadow duration-300 hover:shadow-md h-full">
-    <h3 className="text-2xl font-semibold text-gray-900">{company}</h3>
-    <p className="text-xl text-gray-700">{title}</p>
-    <p className="text-base text-gray-500 mb-4">{duration}</p>
-    <div className="text-gray-600 space-y-2 text-xl leading-relaxed border-t border-gray-200 pt-4">{children}</div>
-  </div>
-);
-
-const CertificationItem: React.FC<{ title: string; issuer: string; color: string }> = ({ title, issuer, color }) => (
-  <div className={`bg-white p-6 rounded-lg shadow-sm transition-shadow duration-300 hover:shadow-md h-full border-l-4 ${color}`}>
-    <h3 className="text-xl font-semibold text-gray-900">{title}</h3>
-    <p className="text-gray-600">{issuer}</p>
-  </div>
-);
-
 const Resume: React.FC = () => {
   return (
     <div className="w-full mx-auto px-8 md:px-16 lg:px-24 pb-16 md:pb-24">
@@ -101,88 +85,116 @@ const Resume: React.FC = () => {
             </Section>
 
             <Section title="Work Experience">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <ExperienceItem title="Associate Director" company="Verizon" duration="December 2023 – Present">
-                        <ul className="list-disc pl-5 space-y-2">
+                <div className="space-y-12">
+                    <div>
+                        <h3 className="text-2xl font-semibold text-gray-900">Verizon</h3>
+                        <p className="text-xl text-gray-700">Associate Director</p>
+                        <p className="text-base text-gray-500 mb-4">December 2023 – Present</p>
+                        <ul className="list-disc pl-5 space-y-2 text-gray-600">
                             <li>Leading a Source-to-Contract support team of 30+ professionals and supply chain analysts.</li>
                             <li>Driving global strategic sourcing initiatives and overseeing end-to-end sourcing operations.</li>
                             <li>Developing supplier-facing knowledge management programs to enhance collaboration and efficiency.</li>
                         </ul>
-                    </ExperienceItem>
-                    <ExperienceItem title="Senior Manager" company="Verizon" duration="September 2022 – November 2023">
-                        <ul className="list-disc pl-5 space-y-2">
+                    </div>
+                    <div>
+                        <h3 className="text-2xl font-semibold text-gray-900">Verizon</h3>
+                        <p className="text-xl text-gray-700">Senior Manager</p>
+                        <p className="text-base text-gray-500 mb-4">September 2022 – November 2023</p>
+                        <ul className="list-disc pl-5 space-y-2 text-gray-600">
                             <li>Led a source-to-contract support team of 20+ professionals.</li>
                             <li>Aligned with global sourcing leadership on business priorities and drove category-specific goals.</li>
                         </ul>
-                    </ExperienceItem>
-                    <ExperienceItem title="Specialist, Promoted to Consultant" company="Verizon" duration="June 2019 – August 2022">
-                        <ul className="list-disc pl-5 space-y-2">
+                    </div>
+                    <div>
+                        <h3 className="text-2xl font-semibold text-gray-900">Verizon</h3>
+                        <p className="text-xl text-gray-700">Specialist, Promoted to Consultant</p>
+                        <p className="text-base text-gray-500 mb-4">June 2019 – August 2022</p>
+                        <ul className="list-disc pl-5 space-y-2 text-gray-600">
                             <li>Served a dual role as Program Leader for 1Sourcing Ariba S2C Implementation and Category Sourcing Consultant.</li>
                             <li>Managed projects with a spend of over $500M, achieving multi-site cost savings of $100M.</li>
                         </ul>
-                    </ExperienceItem>
-                    <ExperienceItem title="Supply Chain Senior Consultant" company="Hitachi Consulting" duration="May 2016 – June 2019">
-                        <ul className="list-disc pl-5 space-y-2">
+                    </div>
+                     <div>
+                        <h3 className="text-2xl font-semibold text-gray-900">Hitachi Consulting</h3>
+                        <p className="text-xl text-gray-700">Supply Chain Senior Consultant</p>
+                        <p className="text-base text-gray-500 mb-4">May 2016 – June 2019</p>
+                        <ul className="list-disc pl-5 space-y-2 text-gray-600">
                             <li>Enhanced source-to-pay cycle efficiency by introducing a centralized purchasing function.</li>
                             <li>Implemented an eRequest Management System and streamlined the S2P process using Ariba On-Demand.</li>
                         </ul>
-                    </ExperienceItem>
-                    <ExperienceItem title="Strategic Sourcing Analyst" company="Deloitte" duration="October 2015 – April 2016">
-                        <ul className="list-disc pl-5 space-y-2">
+                    </div>
+                     <div>
+                        <h3 className="text-2xl font-semibold text-gray-900">Deloitte</h3>
+                        <p className="text-xl text-gray-700">Strategic Sourcing Analyst</p>
+                        <p className="text-base text-gray-500 mb-4">October 2015 – April 2016</p>
+                        <ul className="list-disc pl-5 space-y-2 text-gray-600">
                             <li>Supported category managers in rolling out RFx for internal requirements in the US and India.</li>
                             <li>Acted as a single point of contact for suppliers and stakeholders during the sourcing process.</li>
                         </ul>
-                    </ExperienceItem>
-                    <ExperienceItem title="Strategic Sourcing Buyer" company="Genpact" duration="October 2013 – October 2015">
-                        <ul className="list-disc pl-5 space-y-2">
+                    </div>
+                     <div>
+                        <h3 className="text-2xl font-semibold text-gray-900">Genpact</h3>
+                        <p className="text-xl text-gray-700">Strategic Sourcing Buyer</p>
+                        <p className="text-base text-gray-500 mb-4">October 2013 – October 2015</p>
+                        <ul className="list-disc pl-5 space-y-2 text-gray-600">
                            <li>Worked as an MRO & IT Buyer, enhancing the S2P cycle for a multinational healthcare client.</li>
                            <li>Managed buying processes and ensured compliance with sourcing policies.</li>
                         </ul>
-                    </ExperienceItem>
+                    </div>
                 </div>
             </Section>
 
             <Section title="Certifications">
-                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <CertificationItem title="Certified Supply Chain Professional (CSCP)" issuer="APICS" color="border-green-500" />
-                    <CertificationItem title="Six Sigma Green Belt (CSSGB)" issuer="Anexas" color="border-gray-500" />
-                    <CertificationItem title="GCP Certified Gen AI Leader" issuer="Google Cloud" color="border-yellow-500" />
-                    <CertificationItem title="Certified Strategy Professional" issuer="Strategy Management Group" color="border-purple-500" />
-                    <CertificationItem title="Slack Workflow Builder" issuer="Slack" color="border-blue-500" />
-                    <CertificationItem title="Slack Champion Certification" issuer="Slack" color="border-indigo-500" />
+                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-6">
+                    <div>
+                        <h3 className="text-xl font-semibold text-gray-900">Certified Supply Chain Professional (CSCP)</h3>
+                        <p className="text-gray-600">APICS</p>
+                    </div>
+                    <div>
+                        <h3 className="text-xl font-semibold text-gray-900">Six Sigma Green Belt (CSSGB)</h3>
+                        <p className="text-gray-600">Anexas</p>
+                    </div>
+                    <div>
+                        <h3 className="text-xl font-semibold text-gray-900">GCP Certified Gen AI Leader</h3>
+                        <p className="text-gray-600">Google Cloud</p>
+                    </div>
+                    <div>
+                        <h3 className="text-xl font-semibold text-gray-900">Certified Strategy Professional</h3>
+                        <p className="text-gray-600">Strategy Management Group</p>
+                    </div>
+                    <div>
+                        <h3 className="text-xl font-semibold text-gray-900">Slack Workflow Builder</h3>
+                        <p className="text-gray-600">Slack</p>
+                    </div>
+                    <div>
+                        <h3 className="text-xl font-semibold text-gray-900">Slack Champion Certification</h3>
+                        <p className="text-gray-600">Slack</p>
+                    </div>
                 </div>
             </Section>
 
             <Section title="Professional Affiliations">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div className="bg-white p-6 rounded-lg text-center shadow-sm transition-shadow duration-300 hover:shadow-md">
-                         <h3 className="text-xl font-semibold text-gray-900">Project Management Institute (PMI)</h3>
-                    </div>
-                     <div className="bg-white p-6 rounded-lg text-center shadow-sm transition-shadow duration-300 hover:shadow-md">
-                         <h3 className="text-xl font-semibold text-gray-900">Association for Supply Chain Management (APICS/ASCM)</h3>
-                    </div>
-                     <div className="bg-white p-6 rounded-lg text-center shadow-sm transition-shadow duration-300 hover:shadow-md">
-                         <h3 className="text-xl font-semibold text-gray-900">Institute for Supply Management (ISM)</h3>
-                    </div>
+                <div className="space-y-4">
+                     <h3 className="text-xl font-semibold text-gray-900">Project Management Institute (PMI)</h3>
+                     <h3 className="text-xl font-semibold text-gray-900">Association for Supply Chain Management (APICS/ASCM)</h3>
+                     <h3 className="text-xl font-semibold text-gray-900">Institute for Supply Management (ISM)</h3>
                 </div>
             </Section>
 
 
             <Section title="Core Competencies">
-                 <div className="bg-white p-8 rounded-lg shadow-sm">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-6">
-                        <div>
-                            <h3 className="text-xl font-semibold text-gray-900 mb-2">Sourcing & Procurement</h3>
-                            <p className="text-gray-600">Category Management, Supplier Relationship Management, Contract Negotiation, Cost Reduction, Global Sourcing.</p>
-                        </div>
-                        <div>
-                             <h3 className="text-xl font-semibold text-gray-900 mb-2">Program Management</h3>
-                            <p className="text-gray-600">Agile Methodologies, Stakeholder Management, Budget Control, Risk Assessment, Performance Measurement.</p>
-                        </div>
-                         <div>
-                            <h3 className="text-xl font-semibold text-gray-900 mb-2">Leadership & Communication</h3>
-                            <p className="text-gray-600">Visionary Thinking, Strategic Planning, Team Development, Cross-Functional Collaboration, Change Management.</p>
-                        </div>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-6">
+                    <div>
+                        <h3 className="text-xl font-semibold text-gray-900 mb-2">Sourcing & Procurement</h3>
+                        <p className="text-gray-600">Category Management, Supplier Relationship Management, Contract Negotiation, Cost Reduction, Global Sourcing.</p>
+                    </div>
+                    <div>
+                         <h3 className="text-xl font-semibold text-gray-900 mb-2">Program Management</h3>
+                        <p className="text-gray-600">Agile Methodologies, Stakeholder Management, Budget Control, Risk Assessment, Performance Measurement.</p>
+                    </div>
+                     <div>
+                        <h3 className="text-xl font-semibold text-gray-900 mb-2">Leadership & Communication</h3>
+                        <p className="text-gray-600">Visionary Thinking, Strategic Planning, Team Development, Cross-Functional Collaboration, Change Management.</p>
                     </div>
                 </div>
             </Section>
