@@ -85,38 +85,23 @@ const Writing: React.FC = () => {
     const fetchArticles = async () => {
       try {
         const RSS_URL = 'https://aminuddinshroff.substack.com/feed';
-        // Using a CORS proxy to bypass browser's same-origin policy which blocks direct requests.
-        const PROXY_URL = `https://api.allorigins.win/raw?url=${encodeURIComponent(RSS_URL)}`;
-        
-        const response = await fetch(PROXY_URL);
+        const API_URL = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(RSS_URL)}`;
+
+        const response = await fetch(API_URL);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
-        const text = await response.text();
-        
-        const parser = new DOMParser();
-        const xml = parser.parseFromString(text, 'application/xml');
 
-        // Check for parsing errors which can happen if the proxy fails or returns non-XML content
-        const parseError = xml.querySelector('parsererror');
-        if (parseError) {
-          console.error('XML Parsing Error:', parseError.textContent);
-          throw new Error('Failed to parse the RSS feed. It might be malformed or the proxy returned an error page.');
+        const data = await response.json();
+        if (data.status !== 'ok') {
+          throw new Error('RSS feed could not be fetched. The service reported an error.');
         }
-
-        const items = xml.querySelectorAll('item');
-
-        const parsedArticles: Article[] = [];
-
-        items.forEach(item => {
-          const title = item.querySelector('title')?.textContent || '';
-          const link = item.querySelector('link')?.textContent || '';
-          const pubDate = item.querySelector('pubDate')?.textContent || '';
-          
-          parsedArticles.push({ title, link, pubDate });
-        });
-
-        parsedArticles.sort((a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime());
+    
+        const parsedArticles: Article[] = data.items.map((item: any) => ({
+          title: item.title,
+          link: item.link,
+          pubDate: item.pubDate,
+        }));
 
         setArticles(parsedArticles);
       } catch (e) {
