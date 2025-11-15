@@ -11,7 +11,7 @@ const Podcast: React.FC = () => {
           <header className="mb-16 text-left">
               <h1 className="text-6xl md:text-8xl font-bold text-gray-900 tracking-tighter">Podcast</h1>
               <p className="text-xl text-gray-700 mt-4 leading-relaxed max-w-4xl">
-                  Ever wondered what happens when the clean lines of Bauhaus collide with a healthy dose of humour and curiosity? Welcome to Hip X Comical, a podcast delving into the intriguing world of design, the art of minimalism, the power of thought, and the everyday adventures of life. Your host navigates these topics with a unique blend of insight and wit. Craving more? Explore our blog and other creative endeavours at <a href="https://aminuddinshroff.substack.com" target="_blank" rel="noopener noreferrer" className="text-brand-orange hover:underline font-semibold">aminuddinshroff.substack.com</a>
+                  In global supply chains, success is built on strategy, efficiency, and clear thinking. Hip X Comical is where those same principles are applied to life beyond the boardroom. This podcast explores how the mindsets that build high-performance teams and drive digital transformation can bring clarity and insight to design, culture, and personal growth. It's a journey into strategic living, fueled by curiosity and a healthy dose of humour. For more applied thoughts, explore my writing at <a href="https://aminuddinshroff.substack.com" target="_blank" rel="noopener noreferrer" className="text-brand-orange hover:underline font-semibold">aminuddinshroff.substack.com</a>
               </p>
           </header>
         </AnimatedSection>
