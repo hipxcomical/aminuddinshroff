@@ -14,6 +14,36 @@ const Connect: React.FC = () => {
           </header>
         </AnimatedSection>
 
+        <section className="mb-12 md:mb-16">
+            <div className="max-w-4xl mx-auto">
+                <div className="bg-gray-50/80 p-8 md:p-10 rounded-lg shadow-sm border-l-4 border-brand-orange">
+                    <div className="text-gray-700 leading-relaxed space-y-4">
+                        <p className="text-xl italic">
+                            “I highly recommend Amin for his exceptional contributions to Strategic Sourcing. Starting as a Specialist in Market Research, he quickly advanced to Associate Director, overseeing critical shared services. Amin is a remarkable professional, consistently demonstrating strategic capability, operational excellence, and transformative leadership.”
+                        </p>
+                        
+                        <div className="space-y-3 text-lg">
+                            <p className="font-semibold text-gray-800">Key highlights include:</p>
+                            <div className="pl-4 border-l-2 border-gray-300 space-y-2">
+                                <p><strong className="font-semibold">Operational Transformation & Scaling:</strong> As Senior Manager and Associate Director, Amin built and led the Shared Services team, supporting 30+ global sourcing categories and centralizing functions for measurable efficiency.</p>
+                                <p><strong className="font-semibold">Commitment to Culture and People:</strong> He fostered a collaborative, empowering, and inclusive environment, mentoring his team and championing continuous improvement.</p>
+                                <p><strong className="font-semibold">Program and Change Management:</strong> As a Consultant, he led crucial training and transition for the Ariba platform, demonstrating strong change management and communication skills.</p>
+                            </div>
+                        </div>
+
+                        <p className="text-xl italic">
+                            “Amin is a high-impact leader capable of executing complex contracts, building, scaling, and culturally aligning organizational infrastructure for global procurement success. I wish him the best in his career.”
+                        </p>
+                    </div>
+                    <cite className="block text-right mt-6 not-italic">
+                        <span className="font-bold text-gray-800">Peter Ucovich</span>
+                        <span className="block text-gray-500 text-base">Chief Product & Sourcing Office E&I</span>
+                        <span className="block text-gray-500 text-sm">Peter managed Amin directly at Verizon</span>
+                    </cite>
+                </div>
+            </div>
+        </section>
+
         <AnimatedSection>
             <div className="bg-gray-50/80 p-10 md:p-14 rounded-lg shadow-sm text-center max-w-4xl mx-auto mb-10">
                 <h2 className="text-3xl font-bold text-gray-900 mb-4">Schedule a Meeting</h2>

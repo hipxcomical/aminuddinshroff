@@ -6,18 +6,27 @@ const Footer: React.FC = () => {
     return (
         <footer className="w-full mx-auto px-8 md:px-16 lg:px-24 py-16 mt-auto border-t border-gray-200 bg-gray-50/50">
             <div className="max-w-4xl mx-auto">
-                <div className="mb-12 text-center">
-                    <a
-                        href="https://aminuddinshroff.substack.com/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-block bg-brand-orange text-white font-bold py-4 px-10 rounded-lg transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1 text-xl shadow-md"
+                <div className="mb-12">
+                   <a
+                      href="https://aminuddinshroff.substack.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group block max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-sm ring-1 ring-gray-900/5 transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-1"
                     >
-                        Subscribe to HipxComical
+                      <div className="flex justify-between items-center">
+                        <div>
+                          <h3 className="text-xl font-bold text-gray-900 group-hover:text-brand-orange transition-colors">Subscribe to HipxComical</h3>
+                          <p className="text-gray-600 mt-1 text-base">
+                            Field notes on humanity, filed under 'duty calls &amp; soul searches'.
+                          </p>
+                        </div>
+                        <div className="text-gray-400 group-hover:text-brand-orange transform transition-all duration-300 group-hover:translate-x-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                          </svg>
+                        </div>
+                      </div>
                     </a>
-                    <p className="text-gray-600 text-lg mt-8 max-w-3xl mx-auto">
-                       A logbook of purposeful wandering, hard-won lessons, and deep dives down rabbit holes. Field notes on humanity, filed under 'duty calls &amp; soul searches'.
-                    </p>
                 </div>
                 <div className="text-center text-gray-500 text-sm border-t border-gray-200 pt-8">
                     <p>&copy; {currentYear} Hip X Comical. All rights reserved.</p>
