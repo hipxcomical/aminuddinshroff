@@ -82,7 +82,27 @@ const Writing: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const fetchArticles = async () => {
+    const loadArticles = async () => {
+      let hasCache = false;
+      // Step 1: Load from cache for instant UI
+      const cachedArticlesJSON = localStorage.getItem('substack_articles');
+      if (cachedArticlesJSON) {
+        try {
+          const articlesFromCache: Article[] = JSON.parse(cachedArticlesJSON);
+          setArticles(articlesFromCache);
+          hasCache = true;
+        } catch (e) {
+          console.error('Failed to parse cached articles, removing item.', e);
+          localStorage.removeItem('substack_articles');
+        }
+      }
+
+      // Set initial loading state based on cache presence
+      if (!hasCache) {
+        setLoading(true);
+      }
+
+      // Step 2: Always fetch fresh data
       try {
         const RSS_URL = 'https://aminuddinshroff.substack.com/feed';
         const API_URL = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(RSS_URL)}`;
@@ -104,15 +124,19 @@ const Writing: React.FC = () => {
         }));
 
         setArticles(parsedArticles);
+        localStorage.setItem('substack_articles', JSON.stringify(parsedArticles));
+        setError(null);
       } catch (e) {
         console.error("Failed to fetch or parse RSS feed:", e);
-        setError("Could not load articles from Substack. Please try again later.");
+        if (!hasCache) {
+          setError("Could not load articles from Substack. Please try again later.");
+        }
       } finally {
-        setLoading(false);
+        setLoading(false); // Always turn off loading at the end
       }
     };
 
-    fetchArticles();
+    loadArticles();
   }, []);
 
   return (
