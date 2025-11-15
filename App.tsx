@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Resume from './pages/CV';
 import Connect from './pages/Contact';
@@ -7,12 +7,11 @@ import Writing from './pages/Blog';
 import Podcast from './pages/Podcast';
 import Cursor from './components/Cursor';
 import Footer from './components/Footer';
-import AIAssistant from './components/AIAssistant';
 import ScrollToTopButton from './components/ScrollToTopButton';
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className="bg-white text-gray-900 font-sans antialiased flex flex-col min-h-screen">
         <Cursor />
         <Header />
@@ -24,11 +23,10 @@ function App() {
             <Route path="/connect" element={<Connect />} />
           </Routes>
         </main>
-        <AIAssistant />
         <ScrollToTopButton />
         <Footer />
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
