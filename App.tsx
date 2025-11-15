@@ -8,6 +8,7 @@ import Podcast from './pages/Podcast';
 import Cursor from './components/Cursor';
 import Footer from './components/Footer';
 import AIAssistant from './components/AIAssistant';
+import ScrollToTopButton from './components/ScrollToTopButton';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           </Routes>
         </main>
         <AIAssistant />
+        <ScrollToTopButton />
         <Footer />
       </div>
     </HashRouter>

@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
                       href="https://aminuddinshroff.substack.com/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group block max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-sm ring-1 ring-gray-900/5 transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-1"
+                      className="group block max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-sm ring-1 ring-gray-900/5 transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-1 hover:ring-brand-orange"
                     >
                       <div className="flex justify-between items-center">
                         <div>

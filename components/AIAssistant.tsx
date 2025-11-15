@@ -26,7 +26,7 @@ const formatResumeForAI = () => {
     return context;
 };
   
-const systemInstruction = `You are a helpful and professional AI assistant for Aminuddin Shroff's portfolio website. Your purpose is to answer questions about his skills, experience, and professional background based ONLY on the information provided below. Do not invent information. If a question is outside the scope of this information (e.g., personal life, opinions on unrelated topics), politely state that you can only answer questions about Aminuddin's professional background. Be concise and friendly.
+const systemInstruction = `You are a helpful and professional AI assistant for Aminuddin Shroff's portfolio website. Your purpose is to answer questions about his skills, experience, and professional background based on the information provided below. For questions that cannot be answered with the provided information, or for questions about recent events or general knowledge, you can use Google Search to find up-to-date information. When you use search, you MUST cite your sources. Be concise, friendly, and professional.
 
 Here is the information about Aminuddin Shroff:
 ---
@@ -34,9 +34,15 @@ ${formatResumeForAI()}
 ---
 `;
 
+interface GroundingSource {
+    uri: string;
+    title: string;
+}
+
 interface Message {
     role: 'user' | 'assistant';
     content: string;
+    sources?: GroundingSource[];
 }
 
 const AIAssistant: React.FC = () => {
@@ -69,9 +75,22 @@ const AIAssistant: React.FC = () => {
               contents: input,
               config: {
                 systemInstruction: systemInstruction,
+                tools: [{googleSearch: {}}],
               }
             });
-            const assistantMessage: Message = { role: 'assistant', content: response.text };
+
+            const groundingChunks = response.candidates?.[0]?.groundingMetadata?.groundingChunks || [];
+            const sources: GroundingSource[] = groundingChunks
+              .map((chunk: any) => chunk.web)
+              .filter((web: any) => web && web.uri && web.title)
+              .map((web: any) => ({ uri: web.uri, title: web.title }));
+
+            const assistantMessage: Message = { 
+                role: 'assistant', 
+                content: response.text,
+                sources: sources.length > 0 ? sources : undefined 
+            };
+
             setMessages(prev => [...prev, assistantMessage]);
         } catch (error) {
             console.error("Error calling Gemini API:", error);
@@ -106,13 +125,34 @@ const AIAssistant: React.FC = () => {
                         <div className="space-y-4">
                             <div className="flex justify-start">
                                 <div className="bg-gray-200 p-3 rounded-lg max-w-xs">
-                                    <p className="text-sm">Hello! Ask me anything about Aminuddin's professional background, skills, or experience.</p>
+                                    <p className="text-sm">Hello! I can answer questions about Aminuddin's professional background from his resume. I can also use Google Search to find answers to other questions. How can I help?</p>
                                 </div>
                             </div>
                             {messages.map((msg, index) => (
                                 <div key={index} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                                    <div className={`${msg.role === 'user' ? 'bg-brand-orange text-white' : 'bg-gray-200'} p-3 rounded-lg max-w-xs`}>
-                                        <p className="text-sm">{msg.content}</p>
+                                    <div className={`${msg.role === 'user' ? 'bg-brand-orange text-white' : 'bg-gray-200'} p-3 rounded-lg max-w-xs break-words`}>
+                                        <div className="space-y-2">
+                                            {msg.content.split('\n\n').map((paragraph, i) => (
+                                                <p key={i} className="text-sm whitespace-pre-wrap">
+                                                    {paragraph}
+                                                </p>
+                                            ))}
+                                        </div>
+                                        {msg.sources && msg.sources.length > 0 && (
+                                            <div className="mt-3 pt-3 border-t border-gray-300">
+                                                <h4 className="text-xs font-bold text-gray-600 mb-2">Sources:</h4>
+                                                <ul className="text-xs space-y-1.5">
+                                                    {msg.sources.map((source, i) => (
+                                                        <li key={i} className="flex items-start">
+                                                            <span className="text-gray-500 mr-1.5 mt-0.5">&#8226;</span>
+                                                            <a href={source.uri} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                                                                {source.title}
+                                                            </a>
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+                                        )}
                                     </div>
                                 </div>
                             ))}
