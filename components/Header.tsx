@@ -4,11 +4,11 @@ import HandwritingSignature from './HandwritingSignature';
 
 const Header: React.FC = () => {
   const navLinks = [
-    { path: '/', name: 'Resume' },
-    { path: '/writing', name: 'Writing' },
-    { path: 'https://aminuddinshroff.substack.com/notes', name: 'Notes', isExternal: true },
-    { path: '/podcast', name: 'Podcast' },
-    { path: '/connect', name: 'Connect' },
+    { path: '/', name: 'resume' },
+    { path: '/writing', name: 'writing' },
+    { path: 'https://aminuddinshroff.substack.com/notes', name: 'notes', isExternal: true },
+    { path: '/podcast', name: 'podcast' },
+    { path: '/connect', name: 'connect' },
   ];
 
   return (
@@ -25,7 +25,7 @@ const Header: React.FC = () => {
                 href={link.path}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="nav-link relative transition-colors duration-200 py-1 text-gray-500 hover:text-gray-900"
+                className="nav-link relative transition-all duration-200 py-1 text-gray-500 hover:text-gray-900 transform hover:-translate-y-0.5"
               >
                 {link.name}
               </a>
@@ -35,7 +35,7 @@ const Header: React.FC = () => {
                 to={link.path}
                 end={link.path === '/'}
                 className={({ isActive }) => 
-                  `nav-link relative transition-colors duration-200 py-1 ${isActive ? 'text-gray-900 font-bold active-nav-link' : 'text-gray-500 hover:text-gray-900'}`
+                  `nav-link relative transition-all duration-200 py-1 transform hover:-translate-y-0.5 ${isActive ? 'text-gray-900 font-bold active-nav-link' : 'text-gray-500 hover:text-gray-900'}`
                 }
               >
                 {link.name}

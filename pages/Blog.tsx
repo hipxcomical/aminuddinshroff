@@ -9,6 +9,17 @@ const getWeekNumber = (d: Date): number => {
   return weekNo;
 };
 
+const SkeletonCard: React.FC = () => {
+  return (
+    <div className="bg-gray-50/80 p-6 rounded-lg shadow-sm">
+      <div className="animate-pulse space-y-4">
+        <div className="h-5 bg-gray-300 rounded-lg w-3/4"></div>
+        <div className="h-4 bg-gray-300 rounded-lg w-1/2"></div>
+      </div>
+    </div>
+  );
+};
+
 const ArticleCard: React.FC<{ title: string; link: string; pubDate: string; }> = ({ title, link, pubDate }) => {
   const encodedLink = encodeURIComponent(link);
   const encodedTitle = encodeURIComponent(title);
@@ -131,9 +142,11 @@ const Writing: React.FC = () => {
         </AnimatedSection>
         
         {loading && (
-          <div className="text-center py-10">
-            <p className="text-xl text-gray-600">Loading latest articles from Substack...</p>
-          </div>
+          <AnimatedSection>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {[...Array(6)].map((_, index) => <SkeletonCard key={index} />)}
+            </div>
+          </AnimatedSection>
         )}
         
         {error && (

@@ -5,23 +5,19 @@ const Footer: React.FC = () => {
 
     return (
         <footer className="w-full mx-auto px-8 md:px-16 lg:px-24 py-16 mt-auto border-t border-gray-200 bg-gray-50/50">
-            <div className="max-w-2xl mx-auto text-center">
-                <div className="mb-12">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Subscribe to My Newsletter</h3>
-                    <p className="text-gray-600 text-base mb-6">
-                        Get updates on supply chain strategies, digital transformation, and leadership principles delivered to your inbox.
+            <div className="max-w-4xl mx-auto">
+                <div className="mb-12 text-center">
+                    <a
+                        href="https://aminuddinshroff.substack.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block bg-brand-orange text-white font-bold py-4 px-10 rounded-lg transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1 text-xl shadow-md"
+                    >
+                        Subscribe to HipxComical
+                    </a>
+                    <p className="text-gray-600 text-lg mt-8 max-w-3xl mx-auto">
+                       A logbook of purposeful wandering, hard-won lessons, and deep dives down rabbit holes. Field notes on humanity, filed under 'duty calls &amp; soul searches'.
                     </p>
-                    <div className="w-full mx-auto" style={{ maxWidth: '480px' }}>
-                        <iframe 
-                            src="https://aminuddinshroff.substack.com/embed" 
-                            width="100%" 
-                            height="320" 
-                            style={{border:'1px solid #EEE', background:'white'}} 
-                            frameBorder="0" 
-                            scrolling="no"
-                            title="Substack Newsletter Embed"
-                        ></iframe>
-                    </div>
                 </div>
                 <div className="text-center text-gray-500 text-sm border-t border-gray-200 pt-8">
                     <p>&copy; {currentYear} Hip X Comical. All rights reserved.</p>

@@ -1,10 +1,28 @@
 import React, { useRef, useState, useEffect } from 'react';
+import Timeline from '../components/Timeline';
+import { introParagraphs, skillsData, workData, callToAction } from '../data/resumeData';
 
 export const AnimatedSection: React.FC<{ children: React.ReactNode, className?: string }> = ({ children, className }) => {
     const ref = useRef<HTMLDivElement>(null);
     const [isVisible, setIsVisible] = useState(false);
+    const [useAnimation, setUseAnimation] = useState(false);
 
     useEffect(() => {
+        const checkAnimation = () => {
+            setUseAnimation(window.innerWidth >= 768);
+        };
+        checkAnimation();
+        window.addEventListener('resize', checkAnimation);
+        return () => window.removeEventListener('resize', checkAnimation);
+    }, []);
+
+    useEffect(() => {
+        if (!useAnimation) {
+            // Instantly make visible if not using animations (for mobile)
+            setIsVisible(true);
+            return;
+        }
+
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {
@@ -25,10 +43,12 @@ export const AnimatedSection: React.FC<{ children: React.ReactNode, className?: 
                 observer.unobserve(currentElement);
             }
         };
-    }, []);
+    }, [useAnimation]);
+
+    const animationClasses = useAnimation ? `fade-in-section ${isVisible ? 'is-visible' : ''}` : '';
 
     return (
-        <section ref={ref} className={`${className} fade-in-section ${isVisible ? 'is-visible' : ''}`}>
+        <section ref={ref} className={`${className} ${animationClasses}`}>
             {children}
         </section>
     );
@@ -39,14 +59,17 @@ const Section: React.FC<{ title: string; children: React.ReactNode }> = ({ title
     <AnimatedSection className="mt-16">
         <div className="bg-gray-50/80 p-8 md:p-12 rounded-lg shadow-sm">
             <h2 className="text-3xl font-bold text-gray-900 mb-8">{title}</h2>
-            <div className="space-y-6 text-gray-700 leading-relaxed text-xl">
+            <div className="text-gray-700 leading-relaxed text-xl">
                 {children}
             </div>
         </div>
     </AnimatedSection>
 );
 
+
 const Resume: React.FC = () => {
+  const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
+
   return (
     <div className="w-full mx-auto px-8 md:px-16 lg:px-24 pb-16 md:pb-24">
         <div className="mx-2">
@@ -55,20 +78,44 @@ const Resume: React.FC = () => {
                     <div className="lg:flex-1">
                         <h1 className="text-6xl md:text-8xl font-bold text-gray-900 mb-8 tracking-tighter">Building High-Performance Teams & AI-Powered Solutions for Global Supply Chain Efficiency.</h1>
                         <div className="text-xl leading-relaxed text-gray-700 space-y-4">
-                            <p className="text-justify">
-                                A results-driven global sourcing expert and digital transformation leader with 10+ years of experience orchestrating high-stakes supply chain operations. Proven ability to lead and develop high-performing, multi-site teams, drive complex program management, and secure significant cost savings through strategic supplier relationships. This corporate expertise is sharpened by the entrepreneurial acumen gained as a 1x founder with a successful exit.
-                            </p>
-                            <p className="text-justify">
-                                Passionate about leveraging AI and automation to innovate and streamline processes. Authored publications on an AI-powered sourcing bot and a LegalTech solution to enhance contract redline efficiency. Adept at navigating diverse business cultures and building consensus among stakeholders to achieve strategic objectives.
-                            </p>
-                            <p className="text-justify">
-                               Available for Select Projects on improving workflows and efficiencies in the sourcing & supply chain processes.
-                            </p>
+                           {introParagraphs.map((p, i) => <p key={i} className="text-justify">{p}</p>)}
+                        </div>
+                        <div className="mt-8 p-6 bg-orange-50 border-l-4 border-brand-orange rounded-r-lg">
+                            <p className="text-xl text-gray-800 leading-relaxed font-medium">{callToAction}</p>
                         </div>
                     </div>
                 </div>
             </AnimatedSection>
 
+            <Section title="Skills & Expertise">
+                <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
+                    {skillsData.map((categoryItem) => (
+                        <div key={categoryItem.category} className="bg-white p-6 rounded-lg shadow-sm ring-1 ring-gray-900/5 transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-2">
+                            <h3 className="text-xl font-bold text-gray-800 mb-4">{categoryItem.category}</h3>
+                            <div className="flex flex-wrap gap-2">
+                                {categoryItem.skills.map((skill) => (
+                                    <span 
+                                        key={skill.id} 
+                                        className="bg-orange-100 text-brand-orange px-3 py-1 rounded-full text-sm font-semibold transition-all duration-200 ease-in-out hover:bg-brand-orange hover:text-white hover:scale-105"
+                                        onMouseEnter={() => setHoveredSkill(skill.id)}
+                                        onMouseLeave={() => setHoveredSkill(null)}
+                                    >
+                                        {skill.name}
+                                    </span>
+                                ))}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </Section>
+
+            <AnimatedSection className="mt-16">
+                <div className="bg-gray-50/80 p-8 md:p-12 rounded-lg shadow-sm">
+                    <h2 className="text-3xl font-bold text-gray-900 mb-8">Work Experience</h2>
+                    <Timeline data={workData} hoveredSkill={hoveredSkill} />
+                </div>
+            </AnimatedSection>
+            
             <Section title="Connect">
                  <div className="flex flex-wrap items-center justify-center gap-8">
                     <a href="https://www.linkedin.com/in/aminuddinshroff/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 bg-linkedin-blue text-white font-bold py-4 px-8 rounded-lg transition-opacity duration-300 hover:opacity-90 text-xl">
@@ -83,138 +130,6 @@ const Resume: React.FC = () => {
                     <a href="https://aminuddinshroff.substack.com/p/my-principles?utm_source=publication-search" target="_blank" rel="noopener noreferrer" className="inline-block bg-gray-200 text-gray-800 font-bold py-4 px-8 rounded-lg transition-colors duration-300 hover:bg-verizon-red hover:text-white text-xl">
                         My Principles
                     </a>
-                </div>
-            </Section>
-
-            <Section title="Work Experience">
-                <div className="space-y-12">
-                    <div>
-                        <h3 className="text-2xl font-bold text-gray-900 mb-1">Verizon</h3>
-                        <p className="text-gray-500 mb-6">6 years 6 months</p>
-                        <div className="space-y-8">
-                            <div>
-                                <h4 className="text-xl font-semibold text-gray-800">Associate Director, Shared Services & Operations (GSO)</h4>
-                                <p className="text-base text-gray-500 mb-3">January 2024 - Present &middot; Hyderabad, Telangana, India</p>
-                                <p className="text-gray-700 text-justify">A proven leader in strategic sourcing and procurement, with a strong track record of championing change management and digital transformation leading a 50+ talented sourcing professionals. By strategically integrating innovative, Al-powered solutions, this role has consistently driven significant process improvements and enhanced team productivity. My leadership style is defined by a commitment to mentorship, empowering global teams to embrace new technologies and become agents of change. The focus is on providing executive-level guidance on high-impact sourcing initiatives, directly influencing global supply chain strategy, and ensuring the organization remains at the forefront of procurement best practices.</p>
-                            </div>
-                            <div>
-                                <h4 className="text-xl font-semibold text-gray-800">WAVE Regional Communications Chair (Asia Pacific)</h4>
-                                <p className="text-base text-gray-500 mb-3">April 2022 - Present &middot; Hyderabad, Telangana, India</p>
-                                <p className="text-gray-700 text-justify">As a leader in a volunteer capacity, this role consistently demonstrated strategic leadership by serving as a Board Representative, providing updates, and acting as the primary point of contact for a large membership. The role drove a significant change management initiative by developing and executing a comprehensive communications plan to increase awareness and engagement. A key focus was on mentorship, cultivating and empowering a communications committee to foster professional growth. This leadership also resulted in a more engaged community by coordinating, writing, and distributing all membership communications. By streamlining processes, this role ensured consistency and efficiency across all communications and content delivery.</p>
-                            </div>
-                            <div>
-                                <h4 className="text-xl font-semibold text-gray-800">Senior Manager, Shared Services & Operations (GSO)</h4>
-                                <p className="text-base text-gray-500 mb-3">September 2022 - December 2023 (1 year 4 months) &middot; Hyderabad, Telangana, India</p>
-                                <p className="text-gray-700 text-justify">In this leadership role, guided a team of over 30+ sourcing professionals, consistently exceeding key performance metrics and strategic objectives. This position served as a strategic partner to executive leadership, providing critical insights that directly influenced sourcing decisions and broader supply chain initiatives. With a strong focus on mentorship, the leader coached junior colleagues on complex sourcing projects, simultaneously pioneering a more collaborative team environment to improve communication and alignment across all functions.</p>
-                            </div>
-                             <div>
-                                <h4 className="text-xl font-semibold text-gray-800">Consultant, Sourcing</h4>
-                                <p className="text-base text-gray-500 mb-3">March 2021 - September 2022 (1 year 7 months) &middot; Hyderabad, Telangana, India</p>
-                                <p className="text-gray-700 text-justify">In this role, directed a complex change management initiative, successfully transitioning a critical ERP implementation from an external partner to an in-house team. This involved providing dynamic leadership across all program phases, from stakeholder management and budget control to execution and stabilization. By expertly managing both internal and external dependencies, this position ensured a smooth project timeline. A key focus was on proactive mentorship, guiding team members through the complexities of the new system while facilitating cross-functional collaboration to ensure all stakeholders were aligned and committed to the program's success.</p>
-                            </div>
-                             <div>
-                                <h4 className="text-xl font-semibold text-gray-800">Specialist, Sourcing</h4>
-                                <p className="text-base text-gray-500 mb-3">June 2021 - March 2021 (1 year 10 months) &middot; Hyderabad, Telangana, India</p>
-                                <p className="text-gray-700 text-justify">As a strategic specialist, this role was responsible for managing over $500M in spending, identifying and securing over $100M in documented cost savings. A key focus was providing expert consultation to stakeholders by developing and executing category strategies that enhanced business value and mitigated risk. Acting as a change agent, this role introduced and implemented new sourcing methodologies and negotiation strategies to improve overall purchasing power. The position also fostered strong supplier relationships, drove performance improvements through effective contract management, and mentored junior team members on data-driven sourcing and negotiation best practices.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <h3 className="text-2xl font-bold text-gray-900 mb-1">Hitachi Vantara</h3>
-                        <p className="text-gray-500 mb-6">3 years 2 months</p>
-                         <div className="space-y-8">
-                             <div>
-                                <h4 className="text-xl font-semibold text-gray-800">Senior Consultant, Supply Chain (Asia Pacific)</h4>
-                                <p className="text-base text-gray-500 mb-3">April 2018 - June 2019 (1 year 3 months) &middot; Hyderabad, Telangana, India</p>
-                            </div>
-                             <div>
-                                <h4 className="text-xl font-semibold text-gray-800">Consultant, Supply Chain (Asia Pacific)</h4>
-                                <p className="text-base text-gray-500 mb-3">May 2016 - April 2018 (2 years) &middot; Hyderabad, Telangana, India</p>
-                                <p className="text-gray-700 text-justify">In this role, provided direct leadership and supervision to the India Delivery Centers, making key operational decisions that were aligned with senior leadership's strategic direction. This position was critical in fostering cross-functional collaboration with project managers and stakeholders to define requirements and ensure the seamless execution of procurement activities. By focusing on continuous improvement, the leader successfully streamlined end-to-end procurement processes, effectively managing supplier relationships, assessing performance, and overseeing contract and invoice management to maximize efficiency.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <h3 className="text-2xl font-bold text-gray-900 mb-1">Deloitte India (Offices of the US)</h3>
-                         <div className="space-y-8 mt-6">
-                             <div>
-                                <h4 className="text-xl font-semibold text-gray-800">Strategic Sourcing Analyst</h4>
-                                <p className="text-base text-gray-500 mb-3">October 2015 - April 2016 (7 months) &middot; Hyderabad, Andhra Pradesh, India</p>
-                                <p className="text-gray-700 text-justify">In this role, analyzed and presented financial data and key insights from RFx activities to support strategic decision-making. The position led data-driven initiatives, including collecting, organizing, and analyzing large volumes of data for various projects and developing trend analyses for future-case scenario modeling. This role also contributed to significant system and reporting improvements by troubleshooting data integrity issues and participating in new tool implementations to ensure data accuracy and reliability.</p>
-                            </div>
-                        </div>
-                    </div>
-                     <div>
-                        <h3 className="text-2xl font-bold text-gray-900 mb-1">GENPACT</h3>
-                        <p className="text-gray-500 mb-6">2 years 1 month</p>
-                         <div className="space-y-8">
-                            <div>
-                                <h4 className="text-xl font-semibold text-gray-800">Senior Buyer</h4>
-                                <p className="text-base text-gray-500 mb-3">October 2014 - October 2015 (1 year 1 month) &middot; Dlf Cybercity</p>
-                                <p className="text-gray-700 text-justify">In this dynamic role, I managed day-to-day procurement operations and provided timely support for a variety of ad-hoc requests, including cost analysis, change management, and supplier performance management. I proactively contributed to internal business development, expanding the department's footprint and strengthening its influence within a specific region. A key aspect of this position was my role as a mentor, providing early coaching to junior procurement colleagues on smaller sourcing projects, and helping to build the firm's sourcing knowledge base.</p>
-                            </div>
-                            <div>
-                                <h4 className="text-xl font-semibold text-gray-800">Buyer</h4>
-                                <p className="text-base text-gray-500 mb-3">October 2013 - October 2014 (1 year 1 month) &middot; Hyderabad Area, India</p>
-                                <p className="text-gray-700 text-justify">As a member of a procurement team supporting a US healthcare implant multinational with their procurement operations. This role was responsible for managing day-to-day operations and providing timely support for a variety of ad-hoc requests, including cost analysis and delivery & lead time management to meet strict SLAs.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </Section>
-
-            <Section title="Certifications">
-                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-6">
-                    <div>
-                        <h3 className="text-xl font-semibold text-gray-900">Certified Supply Chain Professional (CSCP)</h3>
-                        <p className="text-gray-600">APICS</p>
-                    </div>
-                    <div>
-                        <h3 className="text-xl font-semibold text-gray-900">Six Sigma Green Belt (CSSGB)</h3>
-                        <p className="text-gray-600">Anexas</p>
-                    </div>
-                    <div>
-                        <h3 className="text-xl font-semibold text-gray-900">GCP Certified Gen AI Leader</h3>
-                        <p className="text-gray-600">Google Cloud</p>
-                    </div>
-                    <div>
-                        <h3 className="text-xl font-semibold text-gray-900">Certified Strategy Professional</h3>
-                        <p className="text-gray-600">Strategy Management Group</p>
-                    </div>
-                    <div>
-                        <h3 className="text-xl font-semibold text-gray-900">Slack Workflow Builder</h3>
-                        <p className="text-gray-600">Slack</p>
-                    </div>
-                    <div>
-                        <h3 className="text-xl font-semibold text-gray-900">Slack Champion Certification</h3>
-                        <p className="text-gray-600">Slack</p>
-                    </div>
-                </div>
-            </Section>
-
-            <Section title="Professional Affiliations">
-                <div className="space-y-4">
-                     <h3 className="text-xl font-semibold text-gray-900">Project Management Institute (PMI)</h3>
-                     <h3 className="text-xl font-semibold text-gray-900">Association for Supply Chain Management (APICS/ASCM)</h3>
-                     <h3 className="text-xl font-semibold text-gray-900">Institute for Supply Management (ISM)</h3>
-                </div>
-            </Section>
-
-
-            <Section title="Core Competencies">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-6">
-                    <div>
-                        <h3 className="text-xl font-semibold text-gray-900 mb-2">Sourcing & Procurement</h3>
-                        <p className="text-gray-600">Category Management, Supplier Relationship Management, Contract Negotiation, Cost Reduction, Global Sourcing.</p>
-                    </div>
-                    <div>
-                         <h3 className="text-xl font-semibold text-gray-900 mb-2">Program Management</h3>
-                        <p className="text-gray-600">Agile Methodologies, Stakeholder Management, Budget Control, Risk Assessment, Performance Measurement.</p>
-                    </div>
-                     <div>
-                        <h3 className="text-xl font-semibold text-gray-900 mb-2">Leadership & Communication</h3>
-                        <p className="text-gray-600">Visionary Thinking, Strategic Planning, Team Development, Cross-Functional Collaboration, Change Management.</p>
-                    </div>
                 </div>
             </Section>
         </div>

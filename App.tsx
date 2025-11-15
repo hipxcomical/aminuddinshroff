@@ -7,6 +7,7 @@ import Writing from './pages/Blog';
 import Podcast from './pages/Podcast';
 import Cursor from './components/Cursor';
 import Footer from './components/Footer';
+import AIAssistant from './components/AIAssistant';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route path="/connect" element={<Connect />} />
           </Routes>
         </main>
+        <AIAssistant />
         <Footer />
       </div>
     </HashRouter>

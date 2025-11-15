@@ -99,6 +99,13 @@
             opacity: 1;
             transform: translateY(0);
         }
+        @media (max-width: 768px) {
+            .fade-in-section {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+        }
     </style>
 <script type="importmap">
 {
@@ -106,7 +113,8 @@
     "react": "https://aistudiocdn.com/react@^19.2.0",
     "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
     "react/": "https://aistudiocdn.com/react@^19.2.0/",
-    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.6"
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.6",
+    "@google/genai": "https://esm.run/@google/genai"
   }
 }
 </script>
