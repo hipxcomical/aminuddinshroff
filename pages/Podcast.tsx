@@ -10,7 +10,7 @@ const Podcast: React.FC = () => {
         <AnimatedSection>
           <header className="mb-16 text-left">
               <h1 className="text-6xl md:text-8xl font-bold text-gray-900 tracking-tighter">Podcast</h1>
-              <p className="text-xl text-gray-700 mt-4 leading-relaxed max-w-4xl">
+              <p className="text-xl text-gray-700 mt-4 leading-relaxed max-w-4xl text-justify">
                   In global supply chains, success is built on strategy, efficiency, and clear thinking. Hip X Comical is where those same principles are applied to life beyond the boardroom. This podcast explores how the mindsets that build high-performance teams and drive digital transformation can bring clarity and insight to design, culture, and personal growth. It's a journey into strategic living, fueled by curiosity and a healthy dose of humour. For more applied thoughts, explore my writing at <a href="https://aminuddinshroff.substack.com" target="_blank" rel="noopener noreferrer" className="text-brand-orange hover:underline font-semibold">aminuddinshroff.substack.com</a>
               </p>
           </header>
