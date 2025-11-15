@@ -105,7 +105,7 @@ const Writing: React.FC = () => {
       // Step 2: Always fetch fresh data
       try {
         const RSS_URL = 'https://aminuddinshroff.substack.com/feed';
-        const API_URL = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(RSS_URL)}`;
+        const API_URL = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(RSS_URL)}&_=${Date.now()}`;
 
         const response = await fetch(API_URL);
         if (!response.ok) {
