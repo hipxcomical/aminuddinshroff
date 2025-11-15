@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Resume from './pages/CV';
 import Connect from './pages/Contact';
@@ -12,7 +12,7 @@ import ScrollToTopButton from './components/ScrollToTopButton';
 
 function App() {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <div className="bg-white text-gray-900 font-sans antialiased flex flex-col min-h-screen">
         <Cursor />
         <Header />
@@ -28,7 +28,7 @@ function App() {
         <ScrollToTopButton />
         <Footer />
       </div>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 
