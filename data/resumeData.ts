@@ -61,6 +61,29 @@ export const skillsData = [
   }
 ];
 
+export const leadershipPrinciples = [
+    {
+      title: 'Empowerment Through Autonomy',
+      description: 'Trust teams with ownership and provide them the space to innovate. Micromanagement stifles creativity; autonomy, guided by clear strategic goals, unlocks potential and drives accountability.'
+    },
+    {
+      title: 'Clarity is Kindness',
+      description: 'Communicate goals, feedback, and expectations with radical candor. Ambiguity creates friction and anxiety. Clear, direct, and empathetic communication is the foundation of high-performance teams.'
+    },
+    {
+      title: 'Lead with Curiosity',
+      description: 'Approach challenges with a beginner\'s mind. Ask questions, seek diverse perspectives, and never assume you have all the answers. Continuous learning is the engine of growth and innovation.'
+    },
+    {
+      title: 'Build Bridges, Not Silos',
+      description: 'Foster a culture of cross-functional collaboration. The most complex problems are solved when diverse expertise converges. Break down organizational barriers to create a unified, mission-focused team.'
+    },
+    {
+      title: 'Results-Driven Empathy',
+      description: 'Understand the human element behind the metrics. Drive for ambitious results while prioritizing the well-being and professional growth of every team member. Sustainable success is built on a foundation of mutual respect and support.'
+    }
+];
+
 export const workData: CompanyExperience[] = [
     {
         company: 'Verizon',

@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import Timeline from '../components/Timeline';
-import { introParagraphs, skillsData, workData, callToAction } from '../data/resumeData';
+import { introParagraphs, skillsData, workData, callToAction, leadershipPrinciples } from '../data/resumeData';
 
 export const AnimatedSection: React.FC<{ children: React.ReactNode, className?: string }> = ({ children, className }) => {
     const ref = useRef<HTMLDivElement>(null);
@@ -113,6 +113,17 @@ const Resume: React.FC = () => {
                     <Timeline data={workData} hoveredSkill={hoveredSkill} />
                 </div>
             </AnimatedSection>
+
+            <Section title="Leadership Principles">
+                <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-8">
+                    {leadershipPrinciples.map((principle) => (
+                        <div key={principle.title} className="bg-white p-6 rounded-lg shadow-sm ring-1 ring-gray-900/5 transition-all duration-300 ease-in-out hover:shadow-lg hover:-translate-y-1">
+                            <h3 className="text-xl font-bold text-gray-800 mb-3">{principle.title}</h3>
+                            <p className="text-gray-600 leading-relaxed">{principle.description}</p>
+                        </div>
+                    ))}
+                </div>
+            </Section>
             
             <Section title="Connect">
                  <div className="flex flex-wrap items-center justify-center gap-8">
