@@ -14,6 +14,12 @@ export interface CompanyExperience {
     roles: Role[];
 }
 
+export interface Skill {
+  id: string;
+  name: string;
+  description: string;
+}
+
 export const introParagraphs = [
     "A results-driven global sourcing expert and digital transformation leader with 10+ years of experience orchestrating high-stakes supply chain operations. Proven ability to lead and develop high-performing, multi-site teams, drive complex program management, and secure significant cost savings through strategic supplier relationships. This corporate expertise is sharpened by the entrepreneurial acumen gained as a 1x founder with a successful exit.",
     "Passionate about leveraging AI and automation to innovate and streamline processes. Authored publications on an AI-powered sourcing bot and a LegalTech solution to enhance contract redline efficiency. Adept at navigating diverse business cultures and building consensus among stakeholders to achieve strategic objectives."
@@ -21,42 +27,43 @@ export const introParagraphs = [
 
 export const callToAction = "Passionate about solving complex supply chain challenges. If you're looking for expertise in streamlining sourcing workflows and boosting efficiency, I'm available for consulting engagements. Let's connect.";
 
-export const skillsData = [
+export const skillsData: { category: string; skills: Skill[] }[] = [
   {
     category: 'Core Sourcing & Procurement',
     skills: [
-      { name: 'Strategic Sourcing', id: 'strategic-sourcing' },
-      { name: 'Supplier Relationship Management', id: 'srm' },
-      { name: 'Category Strategy', id: 'category-strategy' },
-      { name: 'Contract Negotiation', id: 'contract-negotiation' },
-      { name: 'Cost Savings', id: 'cost-savings' },
-      { name: 'Procurement Operations', id: 'procurement-ops' },
-      { name: 'Risk Mitigation', id: 'risk-mitigation' },
-      { name: 'Data-Driven Sourcing', id: 'data-sourcing' }
+      { name: 'Strategic Sourcing', id: 'strategic-sourcing', description: 'Expertise in developing and executing comprehensive sourcing strategies that align with business objectives. This includes conducting market analysis, identifying potential suppliers, and managing competitive RFx processes to secure the best value. Applied extensively at Verizon to manage over $500M in spending and deliver significant savings.' },
+      { name: 'Supplier Relationship Management', id: 'srm', description: 'Skilled in building and maintaining strong, collaborative relationships with key suppliers to drive performance, innovation, and long-term value. Implemented SRM programs at Hitachi and Genpact to monitor performance, mitigate risks, and foster a partnership approach, ensuring alignment with strategic goals.' },
+      { name: 'Category Strategy', id: 'category-strategy', description: 'Proficient in developing multi-year category strategies that optimize spending, reduce risk, and deliver sustainable value. At Verizon, developed and executed strategies for multiple global sourcing categories, providing expert consultation to senior stakeholders on market trends and opportunities.' },
+      { name: 'Contract Negotiation', id: 'contract-negotiation', description: 'Adept at leading complex contract negotiations with global suppliers, focusing on terms, pricing, and service levels to protect business interests and achieve favorable outcomes. Successfully negotiated high-value contracts across roles at Verizon, Hitachi, and Deloitte, ensuring compliance and mitigating legal and commercial risks.' },
+      { name: 'Cost Savings', id: 'cost-savings', description: 'Proven track record of identifying and delivering substantial, documented cost savings through strategic sourcing, negotiation, and process optimization. A key achievement at Verizon was securing over $100M in savings by implementing data-driven sourcing methodologies and leading tough negotiations.' },
+      { name: 'Procurement Operations', id: 'procurement-ops', description: 'Experienced in managing and streamlining end-to-end procurement operations, from purchase requisition to payment. At Hitachi and Genpact, I supervised delivery centers and optimized workflows to enhance efficiency, ensure compliance, and meet strict service level agreements (SLAs).' },
+      { name: 'Risk Mitigation', id: 'risk-mitigation', description: 'Specialized in identifying, assessing, and mitigating supply chain risks, including geopolitical, financial, and operational vulnerabilities. This involves developing contingency plans and diversifying the supplier base to ensure business continuity, a critical function performed for key categories at Verizon.' },
+      { name: 'Data-Driven Sourcing', id: 'data-sourcing', description: 'Leverages advanced data analytics to inform sourcing strategies, model total cost of ownership (TCO), and track supplier performance. At Deloitte and Verizon, led initiatives to collect, analyze, and present procurement data, uncovering insights that drove strategic decisions and negotiation leverage.' }
     ]
   },
   {
     category: 'Leadership & Change Management',
     skills: [
-      { name: 'Team Leadership & Mentorship', id: 'team-leadership' },
-      { name: 'Global Team Management', id: 'global-teams' },
-      { name: 'Change Management', id: 'change-management' },
-      { name: 'Stakeholder Management', id: 'stakeholder-management' },
-      { name: 'Program Management', id: 'program-management' },
-      { name: 'Executive Communication', id: 'exec-comm' },
-      { name: 'Cross-Functional Collaboration', id: 'cross-functional-collab' },
-      { name: 'Process Improvement', id: 'process-improvement' }
+      { name: 'Team Leadership & Mentorship', id: 'team-leadership', description: 'Passionate about building, leading, and mentoring high-performing teams. Fosters a culture of collaboration, continuous learning, and empowerment. Consistently recognized for developing talent and guiding teams through complex challenges at Verizon, Hitachi, and Genpact.' },
+      { name: 'Global Team Management', id: 'global-teams', description: 'Experienced in leading diverse, multi-site teams across different continents. As Associate Director at Verizon, I lead a team of over 50 professionals, aligning global operations and fostering a cohesive, high-performance culture across geographical boundaries.' },
+      { name: 'Change Management', id: 'change-management', description: 'Expert in guiding organizations through significant transitions, including technology implementations and process re-engineering. Successfully led the change management for a critical ERP transition at Verizon and drove adoption of new sourcing methodologies as a change agent.' },
+      { name: 'Stakeholder Management', id: 'stakeholder-management', description: 'Adept at building consensus and aligning stakeholders at all levels, from executive leadership to operational teams. This skill was crucial in large-scale program management at Verizon, ensuring all parties were engaged and committed to shared objectives.' },
+      { name: 'Program Management', id: 'program-management', description: 'Skilled in overseeing complex, cross-functional programs from conception to completion. Managed the entire lifecycle of a critical ERP implementation at Verizon, ensuring the project stayed on schedule, within budget, and met all strategic goals.' },
+      { name: 'Executive Communication', id: 'exec-comm', description: 'Proficient in distilling complex information into clear, concise, and compelling presentations for executive leadership. Regularly provided strategic updates and insights to senior leaders at Verizon, directly influencing high-impact sourcing decisions and supply chain strategy.' },
+      { name: 'Cross-Functional Collaboration', id: 'cross-functional-collab', description: 'Fosters a collaborative environment by building strong relationships with legal, finance, IT, and business unit partners. This approach was key at Hitachi and Verizon to ensure seamless execution of procurement activities and alignment on strategic projects.' },
+      { name: 'Process Improvement', id: 'process-improvement', description: 'Committed to continuous improvement by identifying inefficiencies and implementing streamlined, scalable processes. Led initiatives at Hitachi and Verizon to re-engineer procurement workflows, resulting in measurable gains in efficiency and productivity.' }
     ]
   },
   {
     category: 'Digital Transformation & Innovation',
     skills: [
-      { name: 'AI-Powered Solutions', id: 'ai-solutions' },
-      { name: 'Digital Transformation Strategy', id: 'digital-transformation' },
-      { name: 'ERP Implementation', id: 'erp-implementation' },
-      { name: 'Process Automation', id: 'process-automation' },
-      { name: 'Data Analysis & Insights', id: 'data-analysis' },
-      { name: 'LegalTech Innovation', id: 'legal-tech' }
+      { name: 'AI-Powered Solutions', id: 'ai-solutions', description: 'Visionary in applying AI and automation to solve complex supply chain challenges. Authored a publication on an AI-powered sourcing bot designed to automate routine procurement tasks, and champion the integration of innovative technologies to drive efficiency at Verizon.' },
+      { name: 'Digital Transformation Strategy', id: 'digital-transformation', description: 'Develops and executes strategies for digital transformation within procurement and supply chain functions. This involves identifying opportunities to leverage technology to enhance data analysis, improve decision-making, and create a more agile, resilient supply chain.' },
+      { name: 'ERP Implementation', id: 'erp-implementation', description: 'Led the successful transition and in-housing of a critical ERP system at Verizon. Managed all phases of the project, demonstrating deep technical understanding and strong program management skills to ensure a stable and effective system rollout.' },
+      { name: 'Process Automation', id: 'process-automation', description: 'Focuses on identifying and implementing automation solutions (e.g., RPA, AI bots) to reduce manual effort, minimize errors, and free up team members for more strategic work. A core component of the digital transformation initiatives I lead.' },
+      { name: 'Data Analysis & Insights', id: 'data-analysis', description: 'Expert in transforming raw data into actionable business intelligence. At Deloitte, I was responsible for analyzing financial data from RFx activities to provide key insights that supported strategic negotiations and sourcing decisions.' },
+      // FIX: Corrected a typo from `name:-` to `name:` which was causing a TypeScript type error.
+      { name: 'LegalTech Innovation', id: 'legal-tech', description: 'Passionate about improving efficiency in the legal aspects of procurement. Co-authored a white paper on a LegalTech solution designed to streamline the contract redlining process, reducing turnaround times and legal overhead.' }
     ]
   }
 ];

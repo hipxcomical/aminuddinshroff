@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { CompanyExperience, Role } from '../data/resumeData';
+import React from 'react';
+import { CompanyExperience } from '../data/resumeData';
 
 interface TimelineProps {
   data: CompanyExperience[];
@@ -7,8 +7,6 @@ interface TimelineProps {
 }
 
 const Timeline: React.FC<TimelineProps> = ({ data, hoveredSkill }) => {
-  const [hoveredId, setHoveredId] = useState<string | null>(null);
-
   const flatData = data.flatMap((companyExp, companyIndex) =>
     companyExp.roles.map((role, roleIndex) => ({
       ...role,
@@ -21,6 +19,8 @@ const Timeline: React.FC<TimelineProps> = ({ data, hoveredSkill }) => {
     }))
   );
 
+  const hasActiveSkillFilter = hoveredSkill !== null;
+
   return (
     <div className="relative">
       {/* Vertical Line */}
@@ -28,21 +28,18 @@ const Timeline: React.FC<TimelineProps> = ({ data, hoveredSkill }) => {
       
       <div>
         {flatData.map((item) => {
-          const isHoveredOnCard = hoveredId === item.id;
           const isSkillMatch = hoveredSkill && item.skills.includes(hoveredSkill);
-          const isHighlighted = isHoveredOnCard || isSkillMatch;
+          const isFaded = hasActiveSkillFilter && !isSkillMatch;
 
           return (
             <div 
               key={item.id} 
-              className="relative pl-10 pb-10 last:pb-0" 
-              onMouseEnter={() => setHoveredId(item.id)} 
-              onMouseLeave={() => setHoveredId(null)}
+              className={`relative pl-10 pb-10 last:pb-0 transition-all duration-300 ease-in-out ${isFaded ? 'opacity-30' : 'opacity-100'}`}
             >
               {/* Timeline Dot */}
               <div className="absolute left-3 top-2.5 transform -translate-x-1/2">
                 <div
-                  className={`w-4 h-4 rounded-full transition-all duration-300 ${isHighlighted ? 'bg-brand-orange ring-4 ring-orange-100' : 'bg-gray-300 ring-4 ring-gray-100'}`}
+                  className={`w-4 h-4 rounded-full transition-all duration-300 ${isSkillMatch ? 'bg-brand-orange ring-8 ring-orange-100 scale-125' : 'bg-gray-300 ring-4 ring-gray-100'}`}
                 >
                 </div>
               </div>
@@ -59,7 +56,7 @@ const Timeline: React.FC<TimelineProps> = ({ data, hoveredSkill }) => {
                 )}
                 
                 {/* Card Content */}
-                <div className={`bg-white p-6 rounded-lg shadow-sm transition-all duration-300 ${isHighlighted ? 'shadow-lg ring-1 ring-brand-orange/50' : ''}`}>
+                <div className={`bg-white p-6 rounded-lg shadow-sm transition-all duration-300 ${isSkillMatch ? 'shadow-xl ring-2 ring-brand-orange' : ''}`}>
                   <h4 className="text-xl font-semibold text-gray-800">{item.title}</h4>
                   <p className="text-base text-gray-500 mb-3">{item.duration}{item.location && ` · ${item.location}`}</p>
                   {item.description && <p className="text-gray-700 text-justify">{item.description}</p>}
