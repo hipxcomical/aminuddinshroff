@@ -97,7 +97,7 @@ const Resume: React.FC = () => {
                     <AnimatedSection className="flex-grow flex flex-col">
                         <div className="bg-gray-50/80 p-8 md:p-12 rounded-lg shadow-sm flex-grow flex flex-col">
                             <h2 className="text-3xl font-bold text-gray-900 mb-8">Skills & Expertise</h2>
-                            <div className="flex flex-wrap gap-3 content-evenly flex-grow">
+                            <div className="grid grid-cols-2 gap-3 lg:flex lg:flex-wrap lg:content-evenly lg:flex-grow">
                                 {skillsData.flatMap(category => category.skills).map((skill) => {
                                     const isDirectlyHovered = hoveredSkill === skill.id;
                                     const isExperienceHovered = hoveredExperienceSkills.includes(skill.id);
@@ -110,10 +110,10 @@ const Resume: React.FC = () => {
                                         <button 
                                             key={skill.id} 
                                             onClick={() => setSelectedSkill(skill)}
-                                            className={`bg-orange-100 text-brand-orange px-4 py-2 rounded-full text-lg font-semibold transition-all duration-300 ease-in-out cursor-pointer
-                                                ${isHighlighted ? 'bg-brand-orange text-white scale-110 shadow-lg' : ''}
+                                            className={`bg-orange-100 text-brand-orange p-2 lg:px-4 lg:py-2 rounded-lg text-base lg:text-lg font-semibold transition-all duration-300 ease-in-out cursor-pointer w-full text-center lg:w-auto h-24 lg:h-auto flex items-center justify-center
+                                                ${isHighlighted ? 'bg-brand-orange text-white lg:scale-110 shadow-lg' : ''}
                                                 ${isFaded ? 'opacity-40' : 'opacity-100'}
-                                                hover:bg-brand-orange hover:text-white hover:scale-105
+                                                hover:bg-brand-orange hover:text-white lg:hover:scale-105
                                             `}
                                             onMouseEnter={() => setHoveredSkill(skill.id)}
                                             onMouseLeave={() => setHoveredSkill(null)}
