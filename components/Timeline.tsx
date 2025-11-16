@@ -4,9 +4,10 @@ import { CompanyExperience } from '../data/resumeData';
 interface TimelineProps {
   data: CompanyExperience[];
   hoveredSkill: string | null;
+  onHoverRole: (skills: string[]) => void;
 }
 
-const Timeline: React.FC<TimelineProps> = ({ data, hoveredSkill }) => {
+const Timeline: React.FC<TimelineProps> = ({ data, hoveredSkill, onHoverRole }) => {
   const flatData = data.flatMap((companyExp, companyIndex) =>
     companyExp.roles.map((role, roleIndex) => ({
       ...role,
@@ -35,6 +36,8 @@ const Timeline: React.FC<TimelineProps> = ({ data, hoveredSkill }) => {
             <div 
               key={item.id} 
               className={`relative pl-10 pb-10 last:pb-0 transition-all duration-300 ease-in-out ${isFaded ? 'opacity-30' : 'opacity-100'}`}
+              onMouseEnter={() => onHoverRole(item.skills)}
+              onMouseLeave={() => onHoverRole([])}
             >
               {/* Timeline Dot */}
               <div className="absolute left-3 top-2.5 transform -translate-x-1/2">
