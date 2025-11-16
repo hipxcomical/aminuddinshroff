@@ -15,7 +15,7 @@ const Footer: React.FC = () => {
                     >
                       <div className="flex justify-between items-center">
                         <div>
-                          <h3 className="text-xl font-bold text-gray-900 group-hover:text-brand-orange transition-colors">Subscribe to HipxComical</h3>
+                          <h3 className="text-xl font-bold text-gray-900 group-hover:text-brand-orange transition-colors">Subscribe to Hip X Comical</h3>
                           <p className="text-gray-600 mt-1 text-base">
                             Field notes on humanity, filed under 'duty calls &amp; soul searches'.
                           </p>

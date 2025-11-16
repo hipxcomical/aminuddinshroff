@@ -3,7 +3,7 @@ import Timeline from '../components/Timeline';
 import { introParagraphs, skillsData, workData, callToAction, leadershipPrinciples } from '../data/resumeData';
 
 export const AnimatedSection: React.FC<{ children: React.ReactNode, className?: string }> = ({ children, className }) => {
-    const ref = useRef<HTMLDivElement>(null);
+    const ref = useRef<HTMLElement>(null);
     const [isVisible, setIsVisible] = useState(false);
     const [useAnimation, setUseAnimation] = useState(false);
 
@@ -59,7 +59,7 @@ const Section: React.FC<{ title: string; children: React.ReactNode }> = ({ title
     <AnimatedSection className="mt-16">
         <div className="bg-gray-50/80 p-8 md:p-12 rounded-lg shadow-sm">
             <h2 className="text-3xl font-bold text-gray-900 mb-8">{title}</h2>
-            <div className="text-gray-700 leading-relaxed text-xl">
+            <div className="text-gray-700 leading-relaxed">
                 {children}
             </div>
         </div>
@@ -94,7 +94,7 @@ const Resume: React.FC = () => {
                                 {categoryItem.skills.map((skill) => (
                                     <span 
                                         key={skill.id} 
-                                        className="bg-orange-100 text-brand-orange px-3 py-1 rounded-full text-sm font-semibold transition-all duration-200 ease-in-out hover:bg-brand-orange hover:text-white hover:scale-105"
+                                        className="bg-orange-100 text-brand-orange px-3 py-1 rounded-full text-base font-semibold transition-all duration-200 ease-in-out hover:bg-brand-orange hover:text-white hover:scale-105"
                                         onMouseEnter={() => setHoveredSkill(skill.id)}
                                         onMouseLeave={() => setHoveredSkill(null)}
                                     >
