@@ -25,7 +25,7 @@ const ConnectCard: React.FC<{ href: string; title: string; description: string; 
 
 const Connect: React.FC = () => {
   // Define all links here for easy management
-  const calendarUrl = "https://calendar.app.google.com/y5w96c5WdeVyL5hV6";
+  const calendarUrl = "https://calendar.app.google/j3Dpi86iKam3Bs9k8";
   const linkedinProfileUrl = "https://www.linkedin.com/in/aminuddinshroff/";
   const what3WordsUrl = "https://what3words.com/risks.mountain.challenge";
 
