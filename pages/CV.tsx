@@ -98,10 +98,12 @@ const Resume: React.FC = () => {
                                         <button 
                                             key={skill.id} 
                                             onClick={() => setSelectedSkill(skill)}
-                                            className={`bg-gray-100 text-gray-700 p-2 lg:px-4 lg:py-2 rounded-lg text-base lg:text-lg font-semibold transition-all duration-300 ease-in-out cursor-pointer w-full text-center lg:w-auto h-24 lg:h-auto flex items-center justify-center
-                                                ${isHighlighted ? 'bg-brand-orange text-white lg:scale-110 shadow-lg' : ''}
+                                            className={`p-2 lg:px-4 lg:py-2 rounded-lg text-base lg:text-lg font-semibold transition-all duration-300 ease-in-out cursor-pointer w-full text-center lg:w-auto h-24 lg:h-auto flex items-center justify-center
+                                                ${isHighlighted
+                                                    ? 'bg-brand-orange text-white scale-110 shadow-lg'
+                                                    : 'bg-gray-100 text-gray-700 hover:bg-brand-orange hover:text-white hover:scale-105'
+                                                }
                                                 ${isFaded ? 'opacity-40' : 'opacity-100'}
-                                                hover:bg-brand-orange hover:text-white lg:hover:scale-105
                                             `}
                                             onMouseEnter={() => setHoveredSkill(skill.id)}
                                             onMouseLeave={() => setHoveredSkill(null)}

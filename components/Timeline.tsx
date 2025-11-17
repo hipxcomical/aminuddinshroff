@@ -35,14 +35,14 @@ const Timeline: React.FC<TimelineProps> = ({ data, hoveredSkill, onHoverRole }) 
           return (
             <div 
               key={item.id} 
-              className={`relative pl-10 pb-10 last:pb-0 transition-all duration-300 ease-in-out ${isFaded ? 'opacity-30' : 'opacity-100'}`}
+              className={`group relative pl-10 pb-10 last:pb-0 transition-all duration-300 ease-in-out ${isFaded ? 'opacity-30' : 'opacity-100'}`}
               onMouseEnter={() => onHoverRole(item.skills)}
               onMouseLeave={() => onHoverRole([])}
             >
               {/* Timeline Dot */}
               <div className="absolute left-3 top-2.5 transform -translate-x-1/2">
                 <div
-                  className={`w-4 h-4 rounded-full transition-all duration-300 ${isSkillMatch ? 'bg-brand-orange ring-8 ring-orange-500/20 scale-125' : 'bg-gray-400 ring-4 ring-white'}`}
+                  className={`w-4 h-4 rounded-full transition-all duration-300 ${isSkillMatch ? 'bg-brand-orange ring-8 ring-brand-orange/20 scale-125' : 'bg-gray-400 ring-4 ring-white group-hover:bg-brand-orange group-hover:ring-8 group-hover:ring-brand-orange/20 group-hover:scale-125'}`}
                 >
                 </div>
               </div>
@@ -59,7 +59,7 @@ const Timeline: React.FC<TimelineProps> = ({ data, hoveredSkill, onHoverRole }) 
                 )}
                 
                 {/* Card Content */}
-                <div className={`bg-gray-50 p-6 rounded-lg transition-all duration-300 ${isSkillMatch ? 'shadow-xl ring-2 ring-brand-orange' : ''}`}>
+                <div className={`bg-gray-50 p-6 rounded-lg border-2 border-transparent transition-all duration-300 ${isSkillMatch ? 'shadow-xl border-brand-orange' : 'group-hover:shadow-xl group-hover:border-brand-orange'}`}>
                   <h4 className="text-xl font-semibold text-gray-800">{item.title}</h4>
                   <p className="text-base text-gray-600 mb-3">{item.duration}{item.location && ` · ${item.location}`}</p>
                   {item.description && <p className="text-gray-700 text-justify">{item.description}</p>}
