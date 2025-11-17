@@ -22,6 +22,7 @@ const SkeletonCard: React.FC = () => {
 
 const ArticleCard: React.FC<{ title: string; link: string; pubDate: string; }> = ({ title, link, pubDate }) => {
   const [canShare, setCanShare] = useState(false);
+  const [showSharedConfirmation, setShowSharedConfirmation] = useState(false);
 
   useEffect(() => {
     // Check for Web Share API support on the client side
@@ -44,22 +45,22 @@ const ArticleCard: React.FC<{ title: string; link: string; pubDate: string; }> =
     e.stopPropagation();
     try {
       await navigator.share(shareData);
+      // On successful share, show confirmation
+      setShowSharedConfirmation(true);
+      setTimeout(() => setShowSharedConfirmation(false), 2000);
     } catch (err) {
-      // User cancellation of the share dialog is not an error.
-      // We check if the error is a DOMException with the name 'AbortError'.
-      if (err instanceof DOMException && err.name === 'AbortError') {
-        // Do nothing, user cancelled.
-      } else {
-        // Log other actual errors.
+      if (!(err instanceof DOMException && err.name === 'AbortError')) {
         console.error("Error sharing article:", err);
       }
     }
   };
-
+  
   const handleSocialShareClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>, url: string) => {
     e.preventDefault();
     e.stopPropagation();
     window.open(url, '_blank', 'width=600,height=400,noopener,noreferrer');
+    setShowSharedConfirmation(true);
+    setTimeout(() => setShowSharedConfirmation(false), 2000);
   };
 
   const twitterShareUrl = `https://twitter.com/intent/tweet?url=${encodedLink}&text=${encodeURIComponent(title + " by @aminuddinshroff")}`;
@@ -95,7 +96,29 @@ const ArticleCard: React.FC<{ title: string; link: string; pubDate: string; }> =
           {dateString && <p className="text-gray-500 text-sm">{dateString}</p>}
         </div>
         
-        <div className="flex items-center space-x-3">
+        <div className="relative flex items-center space-x-3">
+            {/* Confirmation Tooltip */}
+            <div
+              className={`absolute bottom-full right-0 mb-2 flex items-center gap-2 rounded-md bg-gray-800 px-3 py-1.5 text-sm font-semibold text-white shadow-lg transition-all duration-300 ease-in-out ${
+                showSharedConfirmation
+                  ? 'translate-y-0 opacity-100'
+                  : 'pointer-events-none translate-y-2 opacity-0'
+              }`}
+              role="status"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={3}
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Shared!</span>
+            </div>
+
           {canShare ? (
             <button
               onClick={handleNativeShare}
