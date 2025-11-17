@@ -50,26 +50,15 @@
     }
     </script>
     <style>
-        body, a, button, [role="button"], input, select, textarea {
-            cursor: none !important;
-        }
         body {
             letter-spacing: -0.01em;
-            background-color: #ffffff;
+            background-color: #f9fafb; /* gray-50 */
+            color: #374151; /* gray-700 */
         }
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJub2lzZSI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuNzUiIHN0aXRjaFRpbGVzPSJzdGl0Y2giLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWx0ZXI9InVybCgjem5vaXNlKSIgb3BhY2l0eT0iMC4wNSIvPjwvc3ZnPg==');
-            z-index: -2;
-            pointer-events: none;
-        }
+        
         h1, h2, h3, h4, h5, h6 {
             letter-spacing: -0.025em;
+            color: #111827; /* gray-900 */
         }
         p, li, a {
             line-height: 1.45;
@@ -119,7 +108,7 @@
 }
 </script>
 </head>
-<body class="bg-white">
+<body class="bg-gray-50">
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
 </body>

@@ -5,15 +5,13 @@ import Resume from './pages/CV';
 import Connect from './pages/Contact';
 import Writing from './pages/Blog';
 import Podcast from './pages/Podcast';
-import Cursor from './components/Cursor';
 import Footer from './components/Footer';
 import ScrollToTopButton from './components/ScrollToTopButton';
 
 function App() {
   return (
     <HashRouter>
-      <div className="bg-white text-gray-900 font-sans antialiased flex flex-col min-h-screen">
-        <Cursor />
+      <div className="text-gray-700 font-sans antialiased flex flex-col min-h-screen">
         <Header />
         <main className="flex-grow">
           <Routes>

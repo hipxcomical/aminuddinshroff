@@ -7,7 +7,7 @@ const ConnectCard: React.FC<{ href: string; title: string; description: string; 
     href={href}
     target="_blank"
     rel="noopener noreferrer"
-    className="group block bg-gray-50/80 p-8 rounded-lg shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:ring-2 hover:ring-brand-orange/50"
+    className="group block bg-white p-8 rounded-lg transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:ring-2 hover:ring-brand-orange/50 border border-gray-200"
   >
     <div className="flex justify-between items-start h-full">
       <div className="flex flex-col">
@@ -41,7 +41,7 @@ const Connect: React.FC = () => {
 
         <section className="mb-12 md:mb-16">
             <div className="max-w-4xl mx-auto">
-                <div className="bg-gray-50/80 p-8 md:p-10 rounded-lg shadow-sm border-l-4 border-brand-orange">
+                <div className="bg-white p-8 md:p-10 rounded-lg border-l-4 border-brand-orange shadow-sm">
                     <div className="text-gray-700 leading-relaxed space-y-4">
                         <p className="text-xl italic">
                             “I highly recommend Amin for his exceptional contributions to Strategic Sourcing. Starting as a Specialist in Market Research, he quickly advanced to Associate Director, overseeing critical shared services. Amin is a remarkable professional, consistently demonstrating strategic capability, operational excellence, and transformative leadership.”
@@ -62,8 +62,8 @@ const Connect: React.FC = () => {
                     </div>
                     <cite className="block text-right mt-6 not-italic">
                         <span className="font-bold text-gray-800">Peter Ucovich</span>
-                        <span className="block text-gray-500 text-base">Chief Product & Sourcing Office E&I</span>
-                        <span className="block text-gray-500 text-sm">Peter managed Amin directly at Verizon</span>
+                        <span className="block text-gray-600 text-base">Chief Product & Sourcing Office E&I</span>
+                        <span className="block text-gray-600 text-sm">Peter managed Amin directly at Verizon</span>
                     </cite>
                 </div>
             </div>

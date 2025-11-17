@@ -56,18 +56,6 @@ export const AnimatedSection: React.FC<{ children: React.ReactNode, className?: 
 };
 
 
-const Section: React.FC<{ title: string; children: React.ReactNode }> = ({ title, children }) => (
-    <AnimatedSection>
-        <div className="bg-gray-50/80 p-8 md:p-12 rounded-lg shadow-sm">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8">{title}</h2>
-            <div className="text-gray-700 leading-relaxed">
-                {children}
-            </div>
-        </div>
-    </AnimatedSection>
-);
-
-
 const Resume: React.FC = () => {
   const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
   const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null);
@@ -83,7 +71,7 @@ const Resume: React.FC = () => {
                       <div className="text-xl leading-relaxed text-gray-700 space-y-4">
                           {introParagraphs.map((p, i) => <p key={i} className="text-justify">{p}</p>)}
                       </div>
-                      <div className="mt-8 p-6 bg-orange-50 border-l-4 border-brand-orange rounded-r-lg">
+                      <div className="mt-8 p-6 bg-brand-orange/10 border-l-4 border-brand-orange rounded-r-lg">
                           <p className="text-xl text-gray-800 leading-relaxed font-medium">{callToAction}</p>
                       </div>
                   </div>
@@ -95,7 +83,7 @@ const Resume: React.FC = () => {
                 {/* Left Column: Skills & Leadership Principles */}
                 <div className="lg:col-span-2 flex flex-col space-y-16">
                     <AnimatedSection className="flex-grow flex flex-col">
-                        <div className="bg-gray-50/80 p-8 md:p-12 rounded-lg shadow-sm flex-grow flex flex-col">
+                        <div className="bg-white p-8 md:p-12 rounded-lg shadow-sm flex-grow flex flex-col">
                             <h2 className="text-3xl font-bold text-gray-900 mb-8">Skills & Expertise</h2>
                             <div className="grid grid-cols-2 gap-3 lg:flex lg:flex-wrap lg:content-evenly lg:flex-grow">
                                 {skillsData.flatMap(category => category.skills).map((skill) => {
@@ -110,7 +98,7 @@ const Resume: React.FC = () => {
                                         <button 
                                             key={skill.id} 
                                             onClick={() => setSelectedSkill(skill)}
-                                            className={`bg-orange-100 text-brand-orange p-2 lg:px-4 lg:py-2 rounded-lg text-base lg:text-lg font-semibold transition-all duration-300 ease-in-out cursor-pointer w-full text-center lg:w-auto h-24 lg:h-auto flex items-center justify-center
+                                            className={`bg-gray-100 text-gray-700 p-2 lg:px-4 lg:py-2 rounded-lg text-base lg:text-lg font-semibold transition-all duration-300 ease-in-out cursor-pointer w-full text-center lg:w-auto h-24 lg:h-auto flex items-center justify-center
                                                 ${isHighlighted ? 'bg-brand-orange text-white lg:scale-110 shadow-lg' : ''}
                                                 ${isFaded ? 'opacity-40' : 'opacity-100'}
                                                 hover:bg-brand-orange hover:text-white lg:hover:scale-105
@@ -127,11 +115,11 @@ const Resume: React.FC = () => {
                     </AnimatedSection>
 
                     <AnimatedSection className="flex-grow flex flex-col">
-                        <div className="bg-gray-50/80 p-8 md:p-12 rounded-lg shadow-sm flex-grow flex flex-col">
+                        <div className="bg-white p-8 md:p-12 rounded-lg shadow-sm flex-grow flex flex-col">
                             <h2 className="text-3xl font-bold text-gray-900 mb-8">Leadership Principles</h2>
-                            <div className="flex flex-col justify-between flex-grow">
+                            <div className="flex flex-col justify-between flex-grow space-y-4">
                                 {leadershipPrinciples.map((principle) => (
-                                    <div key={principle.title} className="bg-white p-6 rounded-lg shadow-sm ring-1 ring-gray-900/5">
+                                    <div key={principle.title} className="bg-gray-50 p-6 rounded-lg">
                                         <h3 className="text-xl font-bold text-gray-800 mb-3">{principle.title}</h3>
                                         <p className="text-gray-600 leading-relaxed">{principle.description}</p>
                                     </div>
@@ -141,7 +129,7 @@ const Resume: React.FC = () => {
                     </AnimatedSection>
 
                     <AnimatedSection className="flex-grow flex flex-col">
-                        <div className="bg-gray-50/80 p-8 md:p-12 rounded-lg shadow-sm flex-grow flex flex-col">
+                        <div className="bg-white p-8 md:p-12 rounded-lg shadow-sm flex-grow flex flex-col">
                             <h2 className="text-3xl font-bold text-gray-900 mb-8">Connect</h2>
                             <div className="flex flex-col items-stretch justify-center gap-6 flex-grow">
                                <a href="https://www.linkedin.com/in/aminuddinshroff/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-3 bg-linkedin-blue text-white font-bold py-4 px-8 rounded-lg transition-opacity duration-300 hover:opacity-90 text-xl text-center">
@@ -150,10 +138,10 @@ const Resume: React.FC = () => {
                                     </svg>
                                     LinkedIn
                                 </a>
-                                <a href="https://drive.google.com/file/d/1OTXTfKo0b3mQU7WfPFuSStukqUK9RwTQ/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="inline-block bg-gray-700 text-white font-bold py-4 px-8 rounded-lg transition-colors duration-300 hover:bg-gray-900 text-xl text-center">
+                                <a href="https://drive.google.com/file/d/1OTXTfKo0b3mQU7WfPFuSStukqUK9RwTQ/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="inline-block bg-gray-700 text-white font-bold py-4 px-8 rounded-lg transition-colors duration-300 hover:bg-gray-600 text-xl text-center">
                                     Download PDF
                                 </a>
-                                <a href="https://aminuddinshroff.substack.com/p/my-principles?utm_source=publication-search" target="_blank" rel="noopener noreferrer" className="inline-block bg-gray-200 text-gray-800 font-bold py-4 px-8 rounded-lg transition-colors duration-300 hover:bg-verizon-red hover:text-white text-xl text-center">
+                                <a href="https://aminuddinshroff.substack.com/p/my-principles?utm_source=publication-search" target="_blank" rel="noopener noreferrer" className="inline-block bg-gray-600 text-white font-bold py-4 px-8 rounded-lg transition-colors duration-300 hover:bg-verizon-red hover:text-white text-xl text-center">
                                     My Principles
                                 </a>
                             </div>
@@ -164,7 +152,7 @@ const Resume: React.FC = () => {
                 {/* Right Column: Work Experience */}
                 <div className="lg:col-span-3 mt-16 lg:mt-0">
                     <AnimatedSection className="h-full">
-                      <div className="bg-gray-50/80 p-8 md:p-12 rounded-lg shadow-sm h-full">
+                      <div className="bg-white p-8 md:p-12 rounded-lg shadow-sm h-full">
                           <h2 className="text-3xl font-bold text-gray-900 mb-8">Work Experience</h2>
                           <Timeline data={workData} hoveredSkill={hoveredSkill} onHoverRole={setHoveredExperienceSkills} />
                       </div>

@@ -4,14 +4,14 @@ const Footer: React.FC = () => {
     const currentYear = new Date().getFullYear();
 
     return (
-        <footer className="w-full mx-auto px-8 md:px-16 lg:px-24 py-16 mt-auto border-t border-gray-200 bg-gray-50/50">
+        <footer className="w-full mx-auto px-8 md:px-16 lg:px-24 py-16 mt-auto bg-gray-100">
             <div className="max-w-4xl mx-auto">
                 <div className="mb-12">
                    <a
                       href="https://aminuddinshroff.substack.com/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group block max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-sm ring-1 ring-gray-900/5 transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-1 hover:ring-brand-orange"
+                      className="group block max-w-2xl mx-auto p-6 bg-white border border-gray-200 rounded-lg transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-1 hover:ring-2 hover:ring-brand-orange"
                     >
                       <div className="flex justify-between items-center">
                         <div>

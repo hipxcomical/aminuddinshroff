@@ -25,7 +25,7 @@ const Timeline: React.FC<TimelineProps> = ({ data, hoveredSkill, onHoverRole }) 
   return (
     <div className="relative">
       {/* Vertical Line */}
-      <div className="absolute top-2 left-3 w-0.5 h-full bg-gray-200 transform -translate-x-1/2"></div>
+      <div className="absolute top-2 left-3 w-0.5 h-full bg-gray-300 transform -translate-x-1/2"></div>
       
       <div>
         {flatData.map((item) => {
@@ -42,7 +42,7 @@ const Timeline: React.FC<TimelineProps> = ({ data, hoveredSkill, onHoverRole }) 
               {/* Timeline Dot */}
               <div className="absolute left-3 top-2.5 transform -translate-x-1/2">
                 <div
-                  className={`w-4 h-4 rounded-full transition-all duration-300 ${isSkillMatch ? 'bg-brand-orange ring-8 ring-orange-100 scale-125' : 'bg-gray-300 ring-4 ring-gray-100'}`}
+                  className={`w-4 h-4 rounded-full transition-all duration-300 ${isSkillMatch ? 'bg-brand-orange ring-8 ring-orange-500/20 scale-125' : 'bg-gray-400 ring-4 ring-white'}`}
                 >
                 </div>
               </div>
@@ -54,14 +54,14 @@ const Timeline: React.FC<TimelineProps> = ({ data, hoveredSkill, onHoverRole }) 
                       {item.company}
                       {item.companySubtitle && <span className="text-xl font-normal text-gray-700 ml-2">{item.companySubtitle}</span>}
                     </h3>
-                    {item.totalDuration && <p className="text-gray-500">{item.totalDuration}</p>}
+                    {item.totalDuration && <p className="text-gray-600">{item.totalDuration}</p>}
                   </div>
                 )}
                 
                 {/* Card Content */}
-                <div className={`bg-white p-6 rounded-lg shadow-sm transition-all duration-300 ${isSkillMatch ? 'shadow-xl ring-2 ring-brand-orange' : ''}`}>
+                <div className={`bg-gray-50 p-6 rounded-lg transition-all duration-300 ${isSkillMatch ? 'shadow-xl ring-2 ring-brand-orange' : ''}`}>
                   <h4 className="text-xl font-semibold text-gray-800">{item.title}</h4>
-                  <p className="text-base text-gray-500 mb-3">{item.duration}{item.location && ` · ${item.location}`}</p>
+                  <p className="text-base text-gray-600 mb-3">{item.duration}{item.location && ` · ${item.location}`}</p>
                   {item.description && <p className="text-gray-700 text-justify">{item.description}</p>}
                 </div>
               </div>

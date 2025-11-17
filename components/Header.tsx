@@ -40,7 +40,7 @@ const Header: React.FC = () => {
                   href={link.path}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="nav-link relative transition-all duration-200 py-1 text-gray-500 hover:text-gray-900 transform hover:-translate-y-0.5"
+                  className="nav-link relative transition-all duration-200 py-1 text-gray-600 hover:text-brand-orange transform hover:-translate-y-0.5"
                 >
                   {link.name}
                 </a>
@@ -50,7 +50,7 @@ const Header: React.FC = () => {
                   to={link.path}
                   end={link.path === '/'}
                   className={({ isActive }) => 
-                    `nav-link relative transition-all duration-200 py-1 transform hover:-translate-y-0.5 ${isActive ? 'text-gray-900 font-bold active-nav-link' : 'text-gray-500 hover:text-gray-900'}`
+                    `nav-link relative transition-all duration-200 py-1 transform hover:-translate-y-0.5 ${isActive ? 'text-brand-orange font-bold active-nav-link' : 'text-gray-600 hover:text-brand-orange'}`
                   }
                 >
                   {link.name}
@@ -63,7 +63,7 @@ const Header: React.FC = () => {
           <div className="md:hidden relative z-50">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-900 focus:outline-none"
+              className="text-gray-800 focus:outline-none"
               aria-label="Toggle menu"
             >
               <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

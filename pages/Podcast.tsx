@@ -12,13 +12,13 @@ interface Episode {
 
 // Skeleton loader for episode cards
 const EpisodeSkeletonCard: React.FC = () => (
-  <div className="bg-gray-50/80 p-6 rounded-lg shadow-sm animate-pulse">
-    <div className="h-5 bg-gray-300 rounded-lg w-3/4 mb-3"></div>
-    <div className="h-4 bg-gray-300 rounded-lg w-1/2 mb-4"></div>
-    <div className="h-8 bg-gray-300 rounded-lg w-full mt-2 mb-4"></div>
+  <div className="bg-white p-6 rounded-lg shadow-sm animate-pulse">
+    <div className="h-5 bg-gray-200 rounded-lg w-3/4 mb-3"></div>
+    <div className="h-4 bg-gray-200 rounded-lg w-1/2 mb-4"></div>
+    <div className="h-8 bg-gray-200 rounded-lg w-full mt-2 mb-4"></div>
     <div className="space-y-2">
-      <div className="h-4 bg-gray-300 rounded-lg w-full"></div>
-      <div className="h-4 bg-gray-300 rounded-lg w-5/6"></div>
+      <div className="h-4 bg-gray-200 rounded-lg w-full"></div>
+      <div className="h-4 bg-gray-200 rounded-lg w-5/6"></div>
     </div>
   </div>
 );
@@ -40,7 +40,7 @@ const EpisodeCard: React.FC<{ episode: Episode }> = ({ episode }) => {
     : textDescription;
 
   return (
-    <div className="bg-gray-50/80 p-6 rounded-lg shadow-sm flex flex-col">
+    <div className="bg-white border border-gray-200 p-6 rounded-lg flex flex-col shadow-sm">
       <p className="text-sm text-gray-500 mb-1">{formattedDate}</p>
       <h3 className="text-xl font-semibold text-gray-900 mb-2">{episode.title}</h3>
       
@@ -50,7 +50,7 @@ const EpisodeCard: React.FC<{ episode: Episode }> = ({ episode }) => {
       </audio>
 
       {/* Expandable Description */}
-      <div className="text-gray-600 leading-relaxed">
+      <div className="text-gray-700 leading-relaxed prose prose-p:text-gray-700 prose-a:text-brand-orange">
         {isExpanded ? (
           <div dangerouslySetInnerHTML={{ __html: episode.description }} />
         ) : (
@@ -76,7 +76,7 @@ const Podcast: React.FC = () => {
   
   const spotifyShowUrl = "https://open.spotify.com/show/2RbV83klNFT2MxfkPizESi";
   const applePodcastShowUrl = "https://podcasts.apple.com/us/podcast/hip-x-comical/id1789729101";
-  const spotifyEmbedUrl = "https://open.spotify.com/embed/show/2RbV83klNFT2MxfkPizESi?utm_source=generator";
+  const spotifyEmbedUrl = "https://open.spotify.com/embed/show/2RbV83klNFT2MxfkPizESi?utm_source=generator&theme=0";
   
   useEffect(() => {
     const fetchEpisodes = async () => {
@@ -145,16 +145,16 @@ const Podcast: React.FC = () => {
                 <AnimatedSection>
                   <header className="mb-8 text-left">
                       <h1 className="text-6xl md:text-8xl font-bold text-gray-900 tracking-tighter">Podcast</h1>
-                      <p className="text-xl text-gray-700 mt-4 leading-relaxed max-w-4xl">
+                      <p className="text-xl text-gray-600 mt-4 leading-relaxed max-w-4xl">
                           My day job is untangling global supply chains. This podcast is for untangling everything else. Hip X Comical takes the logic of digital transformation and points it at design, culture, and the weirdness of being human. Think of it as strategic living, with less spreadsheets and more existential jokes. For more applied thoughts, explore my writing at <a href="https://aminuddinshroff.substack.com" target="_blank" rel="noopener noreferrer" className="text-brand-orange hover:underline font-semibold">aminuddinshroff.substack.com</a>
                       </p>
                   </header>
-                  <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mt-8">
+                  <div className="flex flex-col sm:flex-row justify-start items-center gap-6 mt-8">
                       <a
                         href={spotifyShowUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group inline-flex items-center justify-center w-full sm:w-auto bg-gray-800 text-white font-bold text-lg py-4 px-8 rounded-lg shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 hover:bg-spotify-green"
+                        className="group inline-flex items-center justify-center w-full sm:w-auto bg-gray-900 text-white font-bold text-lg py-4 px-8 rounded-lg shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 hover:bg-spotify-green"
                       >
                         <svg role="img" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><title>Spotify logo</title><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.901 17.542c-.229.323-.62.435-.943.205-2.656-1.63-6.002-2-10.455-1.082-.387.086-.74-.127-.825-.512-.086-.387.127-.74.512-.825 4.718-.972 8.352-.57 11.238 1.155.323.229.435.62.205.943zm1.45-3.212c-.282.404-.802.533-1.206.252-3.048-1.86-7.578-2.39-12.445-1.303-.456.102-.913-.153-1.015-.609-.102-.456.153-.913.609-1.015 5.297-1.185 10.218-.598 13.645 1.417.404.282.533.802.252 1.206zm.13-3.418C15.22 7.23 9.89 6.9 5.673 8.01c-.533.153-1.068-.18-1.22-.713-.153-.533.18-1.068.713-1.22 4.675-1.22 10.556-.838 14.937 1.898.456.282.609.89.327 1.346-.282.456-.89.609-1.346.327z"/></svg>
                         <span className="ml-3">Listen on Spotify</span>
@@ -163,7 +163,7 @@ const Podcast: React.FC = () => {
                         href={applePodcastShowUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group inline-flex items-center justify-center w-full sm:w-auto bg-gray-800 text-white font-bold text-lg py-4 px-8 rounded-lg shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 hover:bg-apple-podcast-purple"
+                        className="group inline-flex items-center justify-center w-full sm:w-auto bg-gray-900 text-white font-bold text-lg py-4 px-8 rounded-lg shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 hover:bg-apple-podcast-purple"
                       >
                         <svg role="img" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                             <title>Apple Podcasts logo</title>
@@ -181,16 +181,18 @@ const Podcast: React.FC = () => {
             {/* Right Column: Spotify Player */}
             <div className="lg:col-span-2 flex items-center">
                  <AnimatedSection className="w-full">
-                    <iframe 
-                        className="rounded-xl shadow-lg w-full"
-                        src={spotifyEmbedUrl}
-                        height="352"
-                        frameBorder="0" 
-                        allowFullScreen={false}
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                        loading="lazy"
-                        title="Hip X Comical Podcast Player"
-                    ></iframe>
+                    <div className="bg-white rounded-xl p-2 shadow-sm border border-gray-200">
+                      <iframe 
+                          className="rounded-lg w-full"
+                          src={spotifyEmbedUrl}
+                          height="352"
+                          frameBorder="0" 
+                          allowFullScreen={false}
+                          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                          loading="lazy"
+                          title="Hip X Comical Podcast Player"
+                      ></iframe>
+                    </div>
                  </AnimatedSection>
             </div>
         </div>
@@ -205,7 +207,7 @@ const Podcast: React.FC = () => {
                 {[...Array(4)].map((_, i) => <EpisodeSkeletonCard key={i} />)}
               </div>
             ) : error ? (
-              <div className="text-center py-10 bg-red-50 p-6 rounded-lg">
+              <div className="text-center py-10 bg-red-100 border border-red-200 p-6 rounded-lg">
                 <p className="text-xl text-red-700 font-semibold">An Error Occurred</p>
                 <p className="text-lg text-red-600 mt-2">{error}</p>
               </div>
@@ -214,7 +216,7 @@ const Podcast: React.FC = () => {
                 {episodes.map(ep => <EpisodeCard key={ep.link} episode={ep} />)}
               </div>
             ) : (
-              <div className="text-center py-10 bg-gray-50/80 p-6 rounded-lg">
+              <div className="text-center py-10 bg-gray-100 p-6 rounded-lg">
                 <p className="text-xl text-gray-600">No episodes could be loaded at this time.</p>
               </div>
             )}

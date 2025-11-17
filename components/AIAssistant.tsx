@@ -145,14 +145,14 @@ const AIAssistant: React.FC = () => {
     return (
         <div>
             <h3 className="text-2xl font-bold text-gray-800 mb-4">Ask Amin's AI Assistant</h3>
-            <div className="bg-white p-4 rounded-lg shadow-inner ring-1 ring-gray-200 h-80 flex flex-col">
+            <div className="bg-white p-4 rounded-lg h-80 flex flex-col border border-gray-200 shadow-sm">
                 <div className="flex-grow overflow-y-auto pr-2 space-y-4">
                     {messages.map((msg, index) => (
                         <div key={index} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                             <div
                                 className={`max-w-xs md:max-w-md lg:max-w-lg px-4 py-2 rounded-xl ${
                                     msg.role === 'user'
-                                        ? 'bg-orange-100 text-brand-orange'
+                                        ? 'bg-brand-orange text-white'
                                         : 'bg-gray-200 text-gray-800'
                                 }`}
                                 style={{ whiteSpace: 'pre-wrap', wordWrap: 'break-word' }}
@@ -184,7 +184,7 @@ const AIAssistant: React.FC = () => {
                             <button
                                 key={prompt}
                                 onClick={() => handleExamplePrompt(prompt)}
-                                className="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-sm hover:bg-gray-200 transition-colors"
+                                className="bg-gray-200 text-gray-600 px-3 py-1 rounded-full text-sm hover:bg-gray-300 transition-colors"
                             >
                                 {prompt}
                             </button>
@@ -199,7 +199,7 @@ const AIAssistant: React.FC = () => {
                         onChange={(e) => setInput(e.target.value)}
                         placeholder="Ask about my experience..."
                         disabled={loading || !!error}
-                        className="w-full p-3 text-base text-gray-800 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-orange focus:outline-none transition-shadow disabled:opacity-50"
+                        className="w-full p-3 text-base text-gray-800 bg-gray-100 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-orange focus:outline-none transition-shadow disabled:opacity-50 placeholder:text-gray-400"
                         aria-label="Ask the AI assistant a question"
                     />
                     <button
