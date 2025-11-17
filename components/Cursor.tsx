@@ -62,8 +62,8 @@ const Cursor: React.FC = () => {
         };
     }, []); // Run only once
 
-    const ringSize = isPointer ? 40 : 24;
-    const dotSize = isPointer ? 0 : 8;
+    const ringSize = isPointer ? 32 : 24;
+    const dotSize = isPointer ? 4 : 8;
 
     const ringStyle: React.CSSProperties = {
         position: 'fixed',
@@ -72,7 +72,7 @@ const Cursor: React.FC = () => {
         width: `${ringSize}px`,
         height: `${ringSize}px`,
         border: `2px solid #FF6A13`,
-        backgroundColor: isPointer ? 'rgba(255, 106, 19, 0.2)' : 'transparent',
+        backgroundColor: isPointer ? 'rgba(255, 106, 19, 0.15)' : 'transparent',
         borderRadius: '50%',
         pointerEvents: 'none',
         transform: 'translate(-50%, -50%)',
