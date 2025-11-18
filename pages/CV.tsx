@@ -69,7 +69,7 @@ const Resume: React.FC = () => {
                   <div>
                       <h1 className="text-6xl md:text-8xl font-bold text-gray-900 mb-8 tracking-tighter">Building High-Performance Teams & AI-Powered Solutions for Global Supply Chain Efficiency.</h1>
                       <div className="text-xl leading-relaxed text-gray-700 space-y-4">
-                          {introParagraphs.map((p, i) => <p key={i} className="text-justify">{p}</p>)}
+                          {introParagraphs.map((p, i) => <p key={i} className="text-left md:text-justify">{p}</p>)}
                       </div>
                       <div className="mt-8 p-6 bg-brand-orange/10 border-l-4 border-brand-orange rounded-r-lg">
                           <p className="text-xl text-gray-800 leading-relaxed font-medium">{callToAction}</p>

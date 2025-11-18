@@ -33,7 +33,7 @@ const Connect: React.FC = () => {
     <div className="w-full mx-auto px-6 md:px-16 lg:px-24 pb-16 md:pb-24">
       <AnimatedSection>
         <header className="mb-12 md:mb-16 text-left md:text-center">
-              <h1 className="text-6xl md:text-7xl font-bold text-gray-900 tracking-tighter leading-tight max-w-5xl mx-auto">
+              <h1 className="text-5xl md:text-6xl font-bold text-gray-900 tracking-tighter leading-tight max-w-5xl mx-auto">
                 I'm always open to discussing new projects, creative ideas, or opportunities to be part of an interesting vision. Let's talk strategy, sourcing, or the best route to the Himalayas.
               </h1>
           </header>

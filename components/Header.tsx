@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import HandwritingSignature from './HandwritingSignature';
+import Logo from './Logo';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -27,8 +27,8 @@ const Header: React.FC = () => {
     <>
       <header className="w-full mx-auto px-6 md:px-16 lg:px-24 pt-12 pb-20 md:pt-16">
         <div className="flex justify-between items-center">
-          <Link to="/" className="signature-link relative z-50" onClick={() => setIsMenuOpen(false)}>
-            <HandwritingSignature />
+          <Link to="/" className="relative z-50" onClick={() => setIsMenuOpen(false)}>
+            <Logo />
           </Link>
           
           {/* Desktop Navigation */}

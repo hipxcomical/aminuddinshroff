@@ -62,7 +62,7 @@ const Timeline: React.FC<TimelineProps> = ({ data, hoveredSkill, onHoverRole }) 
                 <div className={`bg-gray-50 p-6 rounded-lg border-2 border-transparent transition-all duration-300 ${isSkillMatch ? 'shadow-xl border-brand-orange' : 'group-hover:shadow-xl group-hover:border-brand-orange'}`}>
                   <h4 className="text-xl font-semibold text-gray-800">{item.title}</h4>
                   <p className="text-base text-gray-600 mb-3">{item.duration}{item.location && ` · ${item.location}`}</p>
-                  {item.description && <p className="text-gray-700 text-justify">{item.description}</p>}
+                  {item.description && <p className="text-gray-700 text-left md:text-justify">{item.description}</p>}
                 </div>
               </div>
             </div>
