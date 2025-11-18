@@ -253,7 +253,7 @@ const Writing: React.FC = () => {
   }, [articles, searchQuery]);
 
   return (
-    <div className="w-full mx-auto px-8 md:px-16 lg:px-24 pb-16 md:pb-24">
+    <div className="w-full mx-auto px-6 md:px-16 lg:px-24 pb-16 md:pb-24">
         <AnimatedSection>
           <header className="mb-12">
               <h1 className="text-6xl md:text-8xl font-bold text-gray-900 tracking-tighter">Writing</h1>

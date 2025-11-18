@@ -25,7 +25,7 @@ const Header: React.FC = () => {
 
   return (
     <>
-      <header className="w-full mx-auto px-8 md:px-16 lg:px-24 pt-12 pb-20 md:pt-16">
+      <header className="w-full mx-auto px-6 md:px-16 lg:px-24 pt-12 pb-20 md:pt-16">
         <div className="flex justify-between items-center">
           <Link to="/" className="signature-link relative z-50" onClick={() => setIsMenuOpen(false)}>
             <HandwritingSignature />

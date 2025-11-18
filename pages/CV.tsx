@@ -63,7 +63,7 @@ const Resume: React.FC = () => {
 
   return (
     <>
-      <div className="w-full mx-auto px-8 md:px-16 lg:px-24 pb-16 md:pb-24">
+      <div className="w-full mx-auto px-6 md:px-16 lg:px-24 pb-16 md:pb-24">
           <div className="mx-2">
               <AnimatedSection className="mb-16">
                   <div>

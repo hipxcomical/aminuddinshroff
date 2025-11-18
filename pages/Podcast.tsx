@@ -136,7 +136,7 @@ const Podcast: React.FC = () => {
   }, []);
 
   return (
-    <div className="w-full mx-auto px-8 md:px-16 lg:px-24 pb-16 md:pb-24">
+    <div className="w-full mx-auto px-6 md:px-16 lg:px-24 pb-16 md:pb-24">
         {/* Top Section: Two-column layout on large screens */}
         <div className="grid lg:grid-cols-5 gap-x-12 gap-y-8 mb-16">
             
