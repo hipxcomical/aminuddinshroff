@@ -4,10 +4,10 @@ const Logo: React.FC = () => {
     const name = "aminuddin shroff";
 
     return (
-        <div className="flex items-center gap-3 group" aria-label="Aminuddin Shroff homepage">
-            {/* Logo Box */}
-            <div className="flex-shrink-0 w-10 h-10 bg-brand-orange rounded-lg flex items-center justify-center transition-all duration-300 ease-in-out group-hover:scale-125">
-                <span className="text-white font-bold text-xl tracking-tighter">AS</span>
+        <div className="flex items-center gap-2 group" aria-label="Aminuddin Shroff homepage">
+            {/* Logo Monogram */}
+            <div className="flex-shrink-0 transition-all duration-300 ease-in-out group-hover:scale-110">
+                <span className="text-brand-orange font-bold text-2xl tracking-tighter">A/S</span>
             </div>
 
             {/* Name */}
