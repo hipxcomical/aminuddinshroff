@@ -1,8 +1,8 @@
+
 import React, { useState } from 'react';
 
 const Logo: React.FC = () => {
     const name = "aminuddin shroff";
-    const lineCount = 4;
     const [animKey, setAnimKey] = useState(0);
 
     const triggerAnimation = () => {
@@ -11,37 +11,51 @@ const Logo: React.FC = () => {
 
     return (
         <div 
-            className="flex items-center gap-2 group cursor-pointer select-none" 
+            className="flex items-center gap-1 group cursor-pointer select-none" 
             aria-label="Aminuddin Shroff homepage"
             onMouseEnter={triggerAnimation}
         >
-            {/* Animated Lines Logo */}
-            <div className="h-8 w-8 flex flex-col justify-between py-1.5">
-                {[...Array(lineCount)].map((_, i) => (
-                    <div
-                        key={`${animKey}-${i}`}
-                        className="bg-brand-orange rounded-full w-full"
+            {/* Triangle Icon with Samurai Slice */}
+            <div className="relative h-8 w-8 flex items-center justify-center mr-1">
+                <svg viewBox="0 0 32 32" className="w-full h-full overflow-visible">
+                    <defs>
+                        <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                            <feGaussianBlur stdDeviation="1" result="blur" />
+                            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                        </filter>
+                    </defs>
+                    {/* Solid Triangle 'A' Base */}
+                    <path
+                        d="M16 2 L30 28 H2 Z"
+                        fill="#FF6A13"
+                        className="transform origin-center transition-transform duration-100"
+                    />
+                    
+                    {/* The Slice Line (Samurai Cut) - Horizontal Middle Cut */}
+                    <path
+                        key={animKey}
+                        d="M-6 17 L38 17"
+                        stroke="white"
+                        strokeWidth="3.5"
+                        strokeLinecap="round"
+                        fill="none"
                         style={{
-                            height: '3px',
-                            opacity: 0,
-                            animationName: 'fall',
-                            animationDuration: '0.5s',
-                            animationTimingFunction: 'cubic-bezier(0.34, 1.56, 0.64, 1)',
-                            animationFillMode: 'forwards',
-                            // Stagger animation: Bottom line falls first, piling up upwards
-                            animationDelay: `${(lineCount - 1 - i) * 100}ms`
+                            strokeDasharray: 44,
+                            strokeDashoffset: 44,
+                            animation: 'samuraiSlice 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards'
                         }}
                     />
-                ))}
+                </svg>
                 <style>{`
-                    @keyframes fall {
+                    @keyframes samuraiSlice {
                         0% {
-                            transform: translateY(-25px);
-                            opacity: 0;
+                            stroke-dashoffset: 44;
+                        }
+                        40% {
+                            stroke-dashoffset: 0;
                         }
                         100% {
-                            transform: translateY(0);
-                            opacity: 1;
+                            stroke-dashoffset: 0;
                         }
                     }
                 `}</style>
@@ -55,8 +69,8 @@ const Logo: React.FC = () => {
                 {name.split('').map((char, index) => (
                     <span
                         key={index}
-                        className="transition-all duration-300 ease-in-out group-hover:-translate-y-1 group-hover:text-brand-orange"
-                        style={{ transitionDelay: `${index * 25}ms` }}
+                        className="transition-all duration-300 ease-in-out group-hover:text-brand-orange"
+                        style={{ transitionDelay: `${index * 15}ms` }}
                     >
                         {char === ' ' ? '\u00A0' : char}
                     </span>

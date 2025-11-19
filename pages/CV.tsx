@@ -69,24 +69,31 @@ const Resume: React.FC = () => {
 
   return (
     <>
-      <div className="w-full mx-auto px-4 md:px-10 lg:px-16 pb-12 md:pb-20">
-          <AnimatedSection className="mb-16">
-              <div>
-                  <h1 className="text-6xl md:text-8xl font-bold text-gray-900 mb-10 tracking-tighter leading-tight">Building High-Performance Teams & AI-Powered Solutions for Global Supply Chain Efficiency.</h1>
-                  <div className="text-lg md:text-xl leading-relaxed text-gray-700 space-y-4">
-                      {introParagraphs.map((p, i) => <p key={i} className="text-left md:text-justify">{p}</p>)}
+      <div className="w-full mx-auto px-6 md:px-16 lg:px-24 pb-16 md:pb-24">
+          {/* Hero Section: Minimal Text */}
+          <AnimatedSection className="mb-12 md:mb-16 pt-6">
+              <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold text-gray-900 tracking-tighter leading-[0.9] md:leading-[0.8] text-left lg:max-w-[24ch]">
+                  Building High-Performance Teams & AI-Powered Solutions for Global Supply Chain Efficiency.
+              </h1>
+          </AnimatedSection>
+
+          {/* Intro Text & CTA Section */}
+          <AnimatedSection className="mb-12 md:mb-20">
+              <div className="w-full">
+                  <div className="text-lg md:text-xl leading-relaxed text-gray-800 space-y-6 text-justify">
+                      {introParagraphs.map((p, i) => <p key={i}>{p}</p>)}
                   </div>
-                  <div className="mt-8 p-6 bg-brand-orange/10 border-l-4 border-brand-orange rounded-r-lg">
-                      <p className="text-lg md:text-xl text-gray-800 leading-relaxed font-medium">{callToAction}</p>
+                  <div className="mt-10 p-8 bg-white border-l-4 border-brand-orange rounded-r-xl shadow-sm ring-1 ring-gray-100">
+                      <p className="text-lg md:text-xl text-gray-900 leading-relaxed text-justify font-bold">{callToAction}</p>
                   </div>
               </div>
           </AnimatedSection>
           
           {/* TWO-COLUMN LAYOUT FOR SKILLS, PRINCIPLES & EXPERIENCE */}
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-x-10 mt-12">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-x-10 mt-8">
             
             {/* Left Column: Skills & Leadership Principles */}
-            <div className="lg:col-span-2 flex flex-col space-y-10">
+            <div className="lg:col-span-2 flex flex-col space-y-8">
                 <AnimatedSection className="flex-grow flex flex-col">
                     <div className="bg-white p-6 md:p-8 rounded-lg shadow-sm flex-grow flex flex-col">
                         <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">Skills & Expertise</h2>
@@ -148,16 +155,19 @@ const Resume: React.FC = () => {
                             <a href="https://drive.google.com/file/d/1OTXTfKo0b3mQU7WfPFuSStukqUK9RwTQ/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="inline-block bg-gray-900 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 hover:bg-gray-700 hover:shadow-lg hover:-translate-y-1 text-lg md:text-xl text-center">
                                 Download PDF
                             </a>
-                            <a href="https://aminuddinshroff.substack.com/p/my-principles?utm_source=publication-search" target="_blank" rel="noopener noreferrer" className="inline-block bg-brand-orange text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 hover:bg-orange-600 hover:shadow-lg hover:-translate-y-1 text-lg md:text-xl text-center">
+                            <button 
+                                className="inline-block bg-brand-orange text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 hover:bg-orange-600 hover:shadow-lg hover:-translate-y-1 text-lg md:text-xl text-center"
+                                onClick={() => window.open("https://aminuddinshroff.substack.com/p/my-principles?utm_source=publication-search", "_blank")}
+                            >
                                 My Principles
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </AnimatedSection>
             </div>
 
             {/* Right Column: Work Experience */}
-            <div className="lg:col-span-3 mt-12 lg:mt-0">
+            <div className="lg:col-span-3 mt-8 lg:mt-0">
                 <AnimatedSection className="h-full">
                   <div className="bg-white p-6 md:p-8 rounded-lg shadow-sm h-full">
                       <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8">Work Experience</h2>
