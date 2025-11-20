@@ -1,3 +1,4 @@
+
 export interface Role {
     title: string;
     duration: string;
@@ -18,6 +19,11 @@ export interface Skill {
   id: string;
   name: string;
   description: string;
+}
+
+export interface Certification {
+    name: string;
+    link?: string;
 }
 
 export const introParagraphs = [
@@ -66,6 +72,18 @@ export const skillsData: { category: string; skills: Skill[] }[] = [
       { name: 'LegalTech Innovation', id: 'legal-tech', description: 'Passionate about improving efficiency in the legal aspects of procurement. Co-authored a white paper on a LegalTech solution designed to streamline the contract redlining process, reducing turnaround times and legal overhead.' }
     ]
   }
+];
+
+export const certifications: Certification[] = [
+    { name: 'Google Cloud Certified Generative AI Leader', link: 'https://www.credly.com/badges/cb444bae-86d0-4986-b5c9-7857fecfeb0b' },
+    { name: 'Certified Professional in Strategic Sourcing (CPSS)' },
+    { name: 'Certified Strategy Professional', link: 'https://www.udemy.com/certificate/UC-309dc03d-e471-41a8-8697-5f0a316032cd/' },
+    { name: 'Generative AI for Project Managers', link: 'https://www.credly.com/badges/fd1f4fe7-41d3-4586-a648-09114f187116/public_url' },
+    { name: 'Digital Transformation Roadmap for Business' },
+    { name: 'Change Management Certification', link: 'https://www.udemy.com/certificate/UC-ccedbc8b-687a-4000-afcd-5fc65e1357ae/' },
+    { name: 'Certified ANA Marketing Professional (CAMP)' },
+    { name: 'Build Persuasive Products', link: 'https://www.udemy.com/certificate/UC-45be6f4b-a281-4910-8099-d8e146e53996/' },
+    { name: 'Slack Workflow Builder' }
 ];
 
 export const leadershipPrinciples = [

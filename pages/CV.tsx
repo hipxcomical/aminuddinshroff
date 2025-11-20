@@ -2,7 +2,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import Timeline from '../components/Timeline';
 import SkillModal from '../components/SkillModal';
-import { introParagraphs, skillsData, workData, callToAction, leadershipPrinciples, Skill } from '../data/resumeData';
+import { introParagraphs, skillsData, workData, callToAction, leadershipPrinciples, certifications, Skill } from '../data/resumeData';
 
 export const AnimatedSection: React.FC<{ children: React.ReactNode, className?: string }> = ({ children, className }) => {
     const ref = useRef<HTMLElement>(null);
@@ -124,6 +124,36 @@ const Resume: React.FC = () => {
                                     </button>
                                 );
                             })}
+                        </div>
+                    </div>
+                </AnimatedSection>
+
+                <AnimatedSection className="flex-grow flex flex-col">
+                    <div className="bg-white p-6 md:p-8 rounded-lg shadow-sm flex-grow flex flex-col">
+                        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">Certifications</h2>
+                        <div className="flex flex-col gap-4">
+                            {certifications.map((cert, index) => (
+                                cert.link ? (
+                                    <a 
+                                        key={index} 
+                                        href={cert.link} 
+                                        target="_blank" 
+                                        rel="noopener noreferrer" 
+                                        className="group block w-full text-left p-4 rounded-lg bg-gray-50 border border-transparent hover:bg-brand-orange hover:text-white hover:shadow-md transition-all duration-300 cursor-pointer"
+                                    >
+                                        <div className="flex items-center justify-between w-full">
+                                            <span className="font-medium text-base md:text-lg leading-tight">{cert.name}</span>
+                                            <svg className="w-5 h-5 flex-shrink-0 ml-3 opacity-50 group-hover:opacity-100" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                            </svg>
+                                        </div>
+                                    </a>
+                                ) : (
+                                    <div key={index} className="block w-full text-left p-4 rounded-lg bg-gray-50 text-gray-700 border border-transparent cursor-default">
+                                        <span className="font-medium text-base md:text-lg leading-tight">{cert.name}</span>
+                                    </div>
+                                )
+                            ))}
                         </div>
                     </div>
                 </AnimatedSection>
