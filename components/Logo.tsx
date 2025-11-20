@@ -11,52 +11,58 @@ const Logo: React.FC = () => {
 
     return (
         <div 
-            className="flex items-center gap-1 group cursor-pointer select-none" 
+            className="flex items-center gap-2 group cursor-pointer select-none" 
             aria-label="Aminuddin Shroff homepage"
             onMouseEnter={triggerAnimation}
         >
-            {/* Triangle Icon with Samurai Slice */}
-            <div className="relative h-8 w-8 flex items-center justify-center mr-1">
+            {/* Networked 'a' Logo (Lowercase) */}
+            <div className="relative h-10 w-10 flex items-center justify-center">
                 <svg viewBox="0 0 32 32" className="w-full h-full overflow-visible">
-                    <defs>
-                        <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-                            <feGaussianBlur stdDeviation="1" result="blur" />
-                            <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                        </filter>
-                    </defs>
-                    {/* Solid Triangle 'A' Base */}
-                    <path
-                        d="M16 2 L30 28 H2 Z"
-                        fill="#FF6A13"
-                        className="transform origin-center transition-transform duration-100"
-                    />
-                    
-                    {/* The Slice Line (Samurai Cut) - Horizontal Middle Cut */}
-                    <path
-                        key={animKey}
-                        d="M-6 17 L38 17"
-                        stroke="white"
-                        strokeWidth="3.5"
-                        strokeLinecap="round"
-                        fill="none"
-                        style={{
-                            strokeDasharray: 44,
-                            strokeDashoffset: 44,
-                            animation: 'samuraiSlice 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards'
-                        }}
-                    />
+                    {/* The Network Lines (The 'a' Frame) */}
+                    <g key={`lines-${animKey}`} stroke="#FF6A13" strokeWidth="2.5" strokeLinecap="round" fill="none">
+                        {/* Stem: Top Right to Bottom Right (Shortened to remove ascender) */}
+                        <path d="M22 12 L22 26" 
+                              style={{ 
+                                  strokeDasharray: 20, 
+                                  strokeDashoffset: 20, 
+                                  animation: 'drawLines 0.4s ease-out forwards' 
+                              }} 
+                        />
+                        {/* Bowl Top: Top of Stem to Left */}
+                        <path d="M22 12 L8 19" 
+                              style={{ 
+                                  strokeDasharray: 16, 
+                                  strokeDashoffset: 16, 
+                                  animation: 'drawLines 0.4s ease-out 0.3s forwards' 
+                              }} 
+                        />
+                        {/* Bowl Bottom: Left to Bottom of Stem */}
+                        <path d="M8 19 L22 26" 
+                              style={{ 
+                                  strokeDasharray: 16, 
+                                  strokeDashoffset: 16, 
+                                  animation: 'drawLines 0.3s ease-out 0.6s forwards' 
+                              }} 
+                        />
+                    </g>
+
+                    {/* The Nodes (Dots) */}
+                    <g fill="#FF6A13" key={`nodes-${animKey}`}>
+                         {/* Top Right Node (Top of Stem) */}
+                        <circle cx="22" cy="12" r="3" style={{ animation: 'popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0s both' }} />
+                        {/* Left Node (Belly) */}
+                        <circle cx="8" cy="19" r="3" style={{ animation: 'popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.45s both' }} />
+                        {/* Bottom Right Node (Bottom of Stem) */}
+                        <circle cx="22" cy="26" r="3" style={{ animation: 'popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.7s both' }} />
+                    </g>
                 </svg>
                 <style>{`
-                    @keyframes samuraiSlice {
-                        0% {
-                            stroke-dashoffset: 44;
-                        }
-                        40% {
-                            stroke-dashoffset: 0;
-                        }
-                        100% {
-                            stroke-dashoffset: 0;
-                        }
+                    @keyframes drawLines {
+                        to { stroke-dashoffset: 0; }
+                    }
+                    @keyframes popIn {
+                        from { transform: scale(0); transform-origin: center; opacity: 0; }
+                        to { transform: scale(1); transform-origin: center; opacity: 1; }
                     }
                 `}</style>
             </div>
