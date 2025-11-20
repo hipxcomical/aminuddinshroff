@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { AnimatedSection } from './CV';
 
 // Reusable component for the new interactive connect cards
@@ -24,40 +24,71 @@ const ConnectCard: React.FC<{ href: string; title: string; description: string; 
   </a>
 );
 
+const TypewriterHeading: React.FC<{ text: string }> = ({ text }) => {
+  const [displayedText, setDisplayedText] = useState('');
+  const [showCursor, setShowCursor] = useState(true);
+  const [isTypingStarted, setIsTypingStarted] = useState(false);
+
+  // Initial delay before typing starts
+  useEffect(() => {
+      const startTimeout = setTimeout(() => {
+          setIsTypingStarted(true);
+      }, 2000); // 2 seconds pause
+      return () => clearTimeout(startTimeout);
+  }, []);
+
+  // Typing animation
+  useEffect(() => {
+    if (!isTypingStarted) return;
+
+    let currentIndex = 0;
+    const speed = 50; // Slower speed (50ms per char)
+    const typingInterval = setInterval(() => {
+      if (currentIndex <= text.length) {
+        setDisplayedText(text.slice(0, currentIndex));
+        currentIndex++;
+      } else {
+        clearInterval(typingInterval);
+      }
+    }, speed);
+
+    return () => clearInterval(typingInterval);
+  }, [text, isTypingStarted]);
+
+  // Blinking cursor effect
+  useEffect(() => {
+    const cursorInterval = setInterval(() => {
+      setShowCursor(prev => !prev);
+    }, 500);
+    return () => clearInterval(cursorInterval);
+  }, []);
+
+  return (
+    <span className="inline">
+      {displayedText}
+      <span className={`${showCursor ? 'opacity-100' : 'opacity-0'} text-brand-orange inline-block ml-1 font-light`}>|</span>
+    </span>
+  );
+};
+
 const Connect: React.FC = () => {
   // Define all links here for easy management
   const calendarUrl = "https://calendar.app.google/j3Dpi86iKam3Bs9k8";
   const linkedinProfileUrl = "https://www.linkedin.com/in/aminuddinshroff/";
   const what3WordsUrl = "https://what3words.com/risks.mountain.challenge";
   
-  // Abstract network/connection video
-  const videoUrl = "https://cdn.pixabay.com/video/2020/02/14/32407-391527227_large.mp4";
-
+  const headingText = "I'm always open to discussing new projects, creative ideas, mentorship, or opportunities to be part of an interesting vision. Let's talk strategy, sourcing, or the best route to the Himalayas on an Interceptor 650.";
+  
   return (
     <div className="w-full mx-auto px-6 md:px-16 lg:px-24 pb-12 md:pb-16">
       <AnimatedSection>
-        <div className="relative w-full rounded-xl overflow-hidden mb-8 shadow-sm border border-gray-100">
-            {/* Background Video */}
-            <video 
-                className="absolute inset-0 w-full h-full object-cover"
-                autoPlay 
-                loop 
-                muted 
-                playsInline
-                src={videoUrl}
-            />
-            
-            {/* Glass Overlay to ensure text readability */}
-            <div className="absolute inset-0 bg-white/90 backdrop-blur-[2px]"></div>
-
-            {/* Content */}
-            <div className="relative z-10 p-6 md:p-10">
-                <header className="text-left">
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 tracking-tighter leading-tight max-w-6xl">
-                        I'm always open to discussing new projects, creative ideas, or opportunities to be part of an interesting vision. Let's talk strategy, sourcing, or the best route to the Himalayas.
-                    </h1>
-                </header>
-            </div>
+        <div className="w-full mb-12 pt-6 md:pt-10">
+            <header className="text-left">
+                {/* Increased font size to 8xl on desktop, removed max-width, increased min-height */}
+                <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-gray-900 tracking-tighter leading-tight w-full min-h-[400px] md:min-h-[500px]">
+                    <TypewriterHeading text={headingText} />
+                </h1>
+            </header>
         </div>
       </AnimatedSection>
 

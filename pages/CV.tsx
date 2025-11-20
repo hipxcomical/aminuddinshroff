@@ -4,6 +4,53 @@ import Timeline from '../components/Timeline';
 import SkillModal from '../components/SkillModal';
 import { introParagraphs, skillsData, workData, callToAction, leadershipPrinciples, certifications, Skill } from '../data/resumeData';
 
+const TypewriterHeading: React.FC<{ text: string }> = ({ text }) => {
+  const [displayedText, setDisplayedText] = useState('');
+  const [showCursor, setShowCursor] = useState(true);
+  const [isTypingStarted, setIsTypingStarted] = useState(false);
+
+  // Initial delay before typing starts
+  useEffect(() => {
+      const startTimeout = setTimeout(() => {
+          setIsTypingStarted(true);
+      }, 2000); // 2 seconds pause
+      return () => clearTimeout(startTimeout);
+  }, []);
+
+  // Typing animation
+  useEffect(() => {
+    if (!isTypingStarted) return;
+
+    let currentIndex = 0;
+    const speed = 50; // Slower speed (50ms per char)
+    const typingInterval = setInterval(() => {
+      if (currentIndex <= text.length) {
+        setDisplayedText(text.slice(0, currentIndex));
+        currentIndex++;
+      } else {
+        clearInterval(typingInterval);
+      }
+    }, speed);
+
+    return () => clearInterval(typingInterval);
+  }, [text, isTypingStarted]);
+
+  // Blinking cursor effect
+  useEffect(() => {
+    const cursorInterval = setInterval(() => {
+      setShowCursor(prev => !prev);
+    }, 500);
+    return () => clearInterval(cursorInterval);
+  }, []);
+
+  return (
+    <span className="inline">
+      {displayedText}
+      <span className={`${showCursor ? 'opacity-100' : 'opacity-0'} text-brand-orange inline-block ml-1 font-light`}>|</span>
+    </span>
+  );
+};
+
 export const AnimatedSection: React.FC<{ children: React.ReactNode, className?: string }> = ({ children, className }) => {
     const ref = useRef<HTMLElement>(null);
     const [isVisible, setIsVisible] = useState(false);
@@ -73,7 +120,7 @@ const Resume: React.FC = () => {
           {/* Hero Section: Minimal Text */}
           <AnimatedSection className="mb-6 md:mb-8 pt-4 md:pt-6">
               <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-gray-900 tracking-tighter leading-[0.95] text-left w-full">
-                  Building High-Performance Teams & AI-Powered Solutions for Global Supply Chain Efficiency.
+                  <TypewriterHeading text="Building High-Performance Teams & AI-Powered Solutions for Global Supply Chain Efficiency." />
               </h1>
           </AnimatedSection>
 
