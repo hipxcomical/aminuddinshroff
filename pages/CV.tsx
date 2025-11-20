@@ -71,8 +71,8 @@ const Resume: React.FC = () => {
     <>
       <div className="w-full mx-auto px-6 md:px-16 lg:px-24 pb-16 md:pb-24">
           {/* Hero Section: Minimal Text */}
-          <AnimatedSection className="mb-12 md:mb-16 pt-6">
-              <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold text-gray-900 tracking-tighter leading-[0.9] md:leading-[0.8] text-left lg:max-w-[24ch]">
+          <AnimatedSection className="mb-6 md:mb-8 pt-4 md:pt-6">
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-gray-900 tracking-tighter leading-[0.95] text-left w-full">
                   Building High-Performance Teams & AI-Powered Solutions for Global Supply Chain Efficiency.
               </h1>
           </AnimatedSection>

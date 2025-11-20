@@ -1,4 +1,5 @@
 
+
 export interface Role {
     title: string;
     duration: string;
@@ -27,11 +28,12 @@ export interface Certification {
 }
 
 export const introParagraphs = [
-    "A results-driven global sourcing expert and digital transformation leader with 10+ years of experience orchestrating high-stakes supply chain operations. Proven ability to lead and develop high-performing, multi-site teams, drive complex program management, and secure significant cost savings through strategic supplier relationships. This corporate expertise is sharpened by the entrepreneurial acumen gained as a 1x founder with a successful exit.",
-    "Passionate about leveraging AI and automation to innovate and streamline processes. Authored publications on an AI-powered sourcing bot and a LegalTech solution to enhance contract redline efficiency. Adept at navigating diverse business cultures and building consensus among stakeholders to achieve strategic objectives."
+    "A seasoned Global Sourcing & Digital Transformation Leader with over a decade of experience architecting high-stakes supply chain operations. My career has been defined by a dual focus: executing rigorous strategic sourcing initiatives for global enterprises like Verizon and Hitachi, and navigating the agile, high-pressure realities of entrepreneurship as a founder with a successful exit. I specialize in transforming procurement from a back-office function into a strategic engine managing over $1B in spend to deliver over $120M in cost savings and tangible competitive advantage.",
+    "I am a builder of high-performance cultures. My leadership approach goes beyond managing metrics; it involves constructing resilient, multi-site global teams capable of navigating complex change. By fostering an environment of autonomy and radical clarity, I empower diverse cross-functional groups to execute large-scale ERP implementations and change management programs with precision. I believe that the strongest supply chains are built on the foundation of empowered people aligned with clear strategic vision.",
+    "At the intersection of strategy and technology, I actively champion the integration of AI and automation into traditional workflows. From authoring publications on AI-powered sourcing bots to deploying LegalTech solutions that streamline contract lifecycles, my work focuses on future-proofing operations. I am passionate about leveraging data analytics and digital tools to strip away inefficiency, allowing organizations to move faster and smarter in an increasingly volatile global market."
 ];
 
-export const callToAction = "Passionate about solving complex supply chain challenges. If you're looking for expertise in streamlining sourcing workflows and boosting efficiency, I'm available for consulting engagements. Let's connect.";
+export const callToAction = "I am currently open to senior leadership roles and consulting engagements focused on building efficiencies through digital transformation. If you are seeking a strategic partner to optimize your supply chain architecture or lead high-performance teams through complex technological transitions, let's connect to drive measurable value.";
 
 export const skillsData: { category: string; skills: Skill[] }[] = [
   {
