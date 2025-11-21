@@ -83,9 +83,8 @@ const Connect: React.FC = () => {
     <div className="w-full mx-auto px-6 md:px-16 lg:px-24 pb-12 md:pb-16">
       <AnimatedSection>
         <div className="w-full mb-12 pt-6 md:pt-10">
-            <header className="text-left">
-                {/* Increased font size to 8xl on desktop, removed max-width, increased min-height */}
-                <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-gray-900 tracking-tighter leading-tight w-full min-h-[400px] md:min-h-[500px]">
+            <header className="text-left w-full">
+                <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-gray-900 tracking-[-0.05em] leading-[0.85] md:tracking-tighter md:leading-[0.9] lg:leading-[0.85] w-full min-h-[300px] md:min-h-[500px]">
                     <TypewriterHeading text={headingText} />
                 </h1>
             </header>
