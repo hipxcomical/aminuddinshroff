@@ -1,3 +1,4 @@
+
 import React, { useState, useRef, useEffect } from 'react';
 import { GoogleGenAI, Chat } from '@google/genai';
 import { introParagraphs, skillsData, leadershipPrinciples, workData } from '../data/resumeData';
@@ -46,7 +47,7 @@ interface Message {
 }
 
 const LoadingIndicator: React.FC = () => (
-    <div className="flex items-center space-x-2">
+    <div className="flex items-center space-x-2" aria-label="AI is thinking">
         <div className="w-2 h-2 bg-gray-500 rounded-full animate-pulse [animation-delay:-0.3s]"></div>
         <div className="w-2 h-2 bg-gray-500 rounded-full animate-pulse [animation-delay:-0.15s]"></div>
         <div className="w-2 h-2 bg-gray-500 rounded-full animate-pulse"></div>
@@ -146,7 +147,13 @@ const AIAssistant: React.FC = () => {
         <div>
             <h3 className="text-2xl font-bold text-gray-800 mb-4">Ask Amin's AI Assistant</h3>
             <div className="bg-white p-4 rounded-lg h-80 flex flex-col border border-gray-200 shadow-sm">
-                <div className="flex-grow overflow-y-auto pr-2 space-y-4">
+                {/* Added role="log" and aria-live="polite" for screen reader announcements */}
+                <div 
+                    className="flex-grow overflow-y-auto pr-2 space-y-4" 
+                    role="log" 
+                    aria-live="polite" 
+                    aria-relevant="additions text"
+                >
                     {messages.map((msg, index) => (
                         <div key={index} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                             <div
@@ -208,7 +215,7 @@ const AIAssistant: React.FC = () => {
                         className="bg-brand-orange text-white rounded-lg p-3 disabled:bg-gray-400 transition-colors duration-200 hover:bg-orange-600 flex-shrink-0"
                         aria-label="Send message"
                     >
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 transform rotate-90" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 transform rotate-90" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
                         </svg>
                     </button>

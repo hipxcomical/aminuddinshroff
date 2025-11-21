@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { AnimatedSection } from './CV';
 
@@ -33,6 +34,9 @@ const EpisodeCard: React.FC<{ episode: Episode }> = ({ episode }) => {
     day: 'numeric',
   });
 
+  // Generate a unique ID for accessibility
+  const descriptionId = `desc-${episode.link.split('/').pop() || Math.random().toString(36).substr(2, 9)}`;
+
   // Create a clean text snippet by stripping HTML tags
   const textDescription = episode.description.replace(/<[^>]*>?/gm, '');
   const snippet = textDescription.length > 200 
@@ -50,7 +54,10 @@ const EpisodeCard: React.FC<{ episode: Episode }> = ({ episode }) => {
       </audio>
 
       {/* Expandable Description */}
-      <div className="text-gray-700 leading-relaxed prose prose-p:text-gray-700 prose-a:text-brand-orange">
+      <div 
+        id={descriptionId}
+        className="text-gray-700 leading-relaxed prose prose-p:text-gray-700 prose-a:text-brand-orange"
+      >
         {isExpanded ? (
           <div dangerouslySetInnerHTML={{ __html: episode.description }} />
         ) : (
@@ -60,6 +67,8 @@ const EpisodeCard: React.FC<{ episode: Episode }> = ({ episode }) => {
 
       <button 
         onClick={() => setIsExpanded(!isExpanded)}
+        aria-expanded={isExpanded}
+        aria-controls={descriptionId}
         className="text-sm font-semibold text-brand-orange hover:underline mt-4 self-start"
       >
         {isExpanded ? 'Show Less' : 'Read Show Notes'}

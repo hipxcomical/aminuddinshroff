@@ -44,9 +44,11 @@ const TypewriterHeading: React.FC<{ text: string }> = ({ text }) => {
   }, []);
 
   return (
-    <span className="inline">
-      {displayedText}
-      <span className={`${showCursor ? 'opacity-100' : 'opacity-0'} text-brand-orange inline-block ml-1 font-light`}>|</span>
+    <span className="inline" aria-label={text}>
+      <span aria-hidden="true">
+        {displayedText}
+        <span className={`${showCursor ? 'opacity-100' : 'opacity-0'} text-brand-orange inline-block ml-1 font-light`}>|</span>
+      </span>
     </span>
   );
 };
@@ -58,7 +60,10 @@ export const AnimatedSection: React.FC<{ children: React.ReactNode, className?: 
 
     useEffect(() => {
         const checkAnimation = () => {
-            setUseAnimation(window.innerWidth >= 768);
+            // Check for reduced motion preference
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            // Only animate on larger screens AND if user hasn't requested reduced motion
+            setUseAnimation(window.innerWidth >= 768 && !prefersReducedMotion);
         };
         checkAnimation();
         window.addEventListener('resize', checkAnimation);
@@ -67,7 +72,7 @@ export const AnimatedSection: React.FC<{ children: React.ReactNode, className?: 
 
     useEffect(() => {
         if (!useAnimation) {
-            // Instantly make visible if not using animations (for mobile)
+            // Instantly make visible if not using animations (for mobile or reduced motion)
             setIsVisible(true);
             return;
         }
@@ -157,6 +162,7 @@ const Resume: React.FC = () => {
                                     <button 
                                         key={skill.id} 
                                         onClick={() => setSelectedSkill(skill)}
+                                        aria-label={`View details for ${skill.name}`}
                                         className={`p-2 lg:px-4 lg:py-2 rounded-lg text-sm md:text-base lg:text-lg font-semibold transition-all duration-300 ease-in-out cursor-pointer w-full text-center lg:w-auto h-20 lg:h-auto flex items-center justify-center
                                             ${isHighlighted
                                                 ? 'bg-brand-orange text-white scale-110 shadow-lg'
@@ -186,11 +192,12 @@ const Resume: React.FC = () => {
                                         href={cert.link} 
                                         target="_blank" 
                                         rel="noopener noreferrer" 
+                                        aria-label={`${cert.name} (opens in new tab)`}
                                         className="group block w-full text-left p-4 rounded-lg bg-gray-50 border border-transparent hover:bg-brand-orange hover:text-white hover:shadow-md transition-all duration-300 cursor-pointer"
                                     >
                                         <div className="flex items-center justify-between w-full">
                                             <span className="font-medium text-base md:text-lg leading-tight">{cert.name}</span>
-                                            <svg className="w-5 h-5 flex-shrink-0 ml-3 opacity-50 group-hover:opacity-100" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <svg className="w-5 h-5 flex-shrink-0 ml-3 opacity-50 group-hover:opacity-100" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                                             </svg>
                                         </div>
@@ -224,7 +231,7 @@ const Resume: React.FC = () => {
                         <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">Connect</h2>
                         <div className="flex flex-col items-stretch justify-center gap-4 flex-grow">
                            <a href="https://www.linkedin.com/in/aminuddinshroff/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-3 bg-linkedin-blue text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 hover:bg-[#004182] hover:shadow-lg hover:-translate-y-1 text-lg md:text-xl text-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
                                     <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.705-.52-1.248-1.342-1.248-.822 0-1.359.543-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.32 0-1.936.724-2.25 1.402h.016a2.53 2.53 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
                                 </svg>
                                 LinkedIn

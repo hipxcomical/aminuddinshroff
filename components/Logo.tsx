@@ -12,11 +12,13 @@ const Logo: React.FC = () => {
     return (
         <div 
             className="flex items-center gap-2 group cursor-pointer select-none" 
-            aria-label="Aminuddin Shroff homepage"
             onMouseEnter={triggerAnimation}
         >
-            {/* Networked 'a' Logo (Lowercase) */}
-            <div className="relative h-10 w-10 flex items-center justify-center">
+            {/* Visually hidden text for screen readers */}
+            <span className="sr-only">Aminuddin Shroff</span>
+
+            {/* Networked 'a' Logo (Lowercase) - Hidden from screen readers as it is decorative/redundant to the text */}
+            <div className="relative h-10 w-10 flex items-center justify-center" aria-hidden="true">
                 <svg viewBox="0 0 32 32" className="w-full h-full overflow-visible">
                     {/* The Network Lines (The 'a' Frame) */}
                     <g key={`lines-${animKey}`} stroke="#FF6A13" strokeWidth="2.5" strokeLinecap="round" fill="none">
@@ -67,7 +69,7 @@ const Logo: React.FC = () => {
                 `}</style>
             </div>
 
-            {/* Name */}
+            {/* Name - Hidden from screen readers as the span above covers it */}
             <div
                 className="text-xl md:text-2xl font-bold font-sans text-gray-900 tracking-tighter flex"
                 aria-hidden="true"

@@ -15,7 +15,7 @@ const ConnectCard: React.FC<{ href: string; title: string; description: string; 
         <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-brand-orange transition-colors">{title}</h3>
         <p className="text-gray-600 text-base leading-relaxed flex-grow">{description}</p>
       </div>
-      <span className="text-gray-400 transform transition-transform duration-300 group-hover:text-brand-orange group-hover:translate-x-2 ml-3 flex-shrink-0">
+      <span className="text-gray-400 transform transition-transform duration-300 group-hover:text-brand-orange group-hover:translate-x-2 ml-3 flex-shrink-0" aria-hidden="true">
         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
         </svg>
@@ -64,9 +64,11 @@ const TypewriterHeading: React.FC<{ text: string }> = ({ text }) => {
   }, []);
 
   return (
-    <span className="inline">
-      {displayedText}
-      <span className={`${showCursor ? 'opacity-100' : 'opacity-0'} text-brand-orange inline-block ml-1 font-light`}>|</span>
+    <span className="inline" aria-label={text}>
+      <span aria-hidden="true">
+        {displayedText}
+        <span className={`${showCursor ? 'opacity-100' : 'opacity-0'} text-brand-orange inline-block ml-1 font-light`}>|</span>
+      </span>
     </span>
   );
 };
