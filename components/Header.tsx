@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import Logo from './Logo';
@@ -25,14 +26,15 @@ const Header: React.FC = () => {
 
   return (
     <>
-      <header className="w-full mx-auto px-6 md:px-16 lg:px-24 pt-12 pb-20 md:pt-16">
+      {/* Main Header */}
+      <header className="w-full mx-auto px-6 md:px-16 lg:px-24 pt-12 pb-6 md:pt-16 relative z-40">
         <div className="flex justify-between items-center">
           <Link to="/" className="relative z-50" onClick={() => setIsMenuOpen(false)}>
             <Logo />
           </Link>
           
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-6 md:space-x-8 text-base">
+          {/* Desktop Horizontal Navigation */}
+          <nav className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
               link.isExternal ? (
                 <a
@@ -40,7 +42,7 @@ const Header: React.FC = () => {
                   href={link.path}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="nav-link relative transition-all duration-200 py-1 text-gray-600 hover:text-brand-orange transform hover:-translate-y-0.5"
+                  className="nav-link relative text-lg font-medium text-gray-500 hover:text-gray-900 transition-colors duration-300"
                 >
                   {link.name}
                 </a>
@@ -50,7 +52,7 @@ const Header: React.FC = () => {
                   to={link.path}
                   end={link.path === '/'}
                   className={({ isActive }) => 
-                    `nav-link relative transition-all duration-200 py-1 transform hover:-translate-y-0.5 ${isActive ? 'text-brand-orange font-bold active-nav-link' : 'text-gray-600 hover:text-brand-orange'}`
+                    `nav-link relative text-lg font-medium transition-colors duration-300 ${isActive ? 'text-gray-900 active-nav-link' : 'text-gray-500 hover:text-gray-900'}`
                   }
                 >
                   {link.name}
