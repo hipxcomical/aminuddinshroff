@@ -77,6 +77,8 @@ export const skillsData: { category: string; skills: Skill[] }[] = [
 ];
 
 export const certifications: Certification[] = [
+    { name: 'Google AI Professional Certification' },
+    { name: 'CISCO Certified AI Technical Practitioner' },
     { name: 'Google Cloud Certified Generative AI Leader', link: 'https://www.credly.com/badges/cb444bae-86d0-4986-b5c9-7857fecfeb0b' },
     { name: 'Certified Professional in Strategic Sourcing (CPSS)' },
     { name: 'Certified Strategy Professional', link: 'https://www.udemy.com/certificate/UC-309dc03d-e471-41a8-8697-5f0a316032cd/' },

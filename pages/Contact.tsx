@@ -123,6 +123,23 @@ const Connect: React.FC = () => {
             </div>
         </section>
 
+        <section className="mb-8 md:mb-12">
+            <div className="w-full">
+                <div className="bg-white p-6 md:p-8 rounded-lg border-l-4 border-brand-orange shadow-sm ring-1 ring-gray-100">
+                    <div className="text-gray-700 leading-relaxed space-y-4">
+                        <p className="text-lg md:text-xl italic">
+                            "I managed Amin on Verizon’s Market Research Strategic Sourcing Team, where he was the key point person for our Syndicated Research and Supplier Management. Amin demonstrated exceptional business acumen, consistently negotiating high-value contracts that optimized spend and ensured vendor accountability. He possesses a critical ability to bridge the gap between technical data and corporate strategy, turning complex research data into actionable market insights. Amin is a proactive, results-oriented professional, and I highly recommend him for any strategic sourcing leadership role."
+                        </p>
+                    </div>
+                    <cite className="block text-right mt-6 not-italic">
+                        <span className="font-bold text-gray-800">Michael Goldstein</span>
+                        <span className="block text-gray-600 text-sm">Senior Manager, Marketing - Verizon</span>
+                        <span className="block text-gray-600 text-xs text-gray-500">Michael managed Amin on Verizon’s Market Research Strategic Sourcing Team</span>
+                    </cite>
+                </div>
+            </div>
+        </section>
+
         <AnimatedSection>
             <div className="text-left mb-6">
                 <h2 className="text-3xl font-bold text-gray-900 tracking-tight">Let's Connect</h2>
